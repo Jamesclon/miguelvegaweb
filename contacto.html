@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto - Miguel Vega DJ</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="/">MIGUEL VEGA DJ</a></div>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <h1>Contacto</h1>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:info@miguelvegaglez.es">info@miguelvegaglez.es</a></p>
+      <p><strong>Redes sociales:</strong></p>
+      <ul class="socials">
+        <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
+        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+
+    <form action="https://formspree.io/f/your_form_id" method="POST" class="contact-form">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required />
+
+      <label>Email:</label>
+      <input type="email" name="email" required />
+
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Miguel Vega. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
