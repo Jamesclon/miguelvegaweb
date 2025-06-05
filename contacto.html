@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Miguel Vega DJ</title>
   <link rel="stylesheet" href="styles/dj.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <nav>
@@ -27,30 +29,21 @@
       <p><strong>Email:</strong> <a href="mailto:info@miguelvegaglez.es">info@miguelvegaglez.es</a></p>
       <p><strong>Redes sociales:</strong></p>
       <ul class="socials">
-        <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.instagram.com/miguelvegamusic" target="_blank">Instagram</a></li>
         <li><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
         <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
       </ul>
     </div>
 
-    <form action="https://formsubmit.co/info@miguelvegaglez.es" method="POST" class="contact-form">
-      <!-- Campo honeypot para spam bots -->
-      <input type="text" name="_honey" style="display:none">
+    <form name="contact" method="POST" data-netlify="true">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required />
 
-      <!-- Evita el captcha de FormSubmit -->
-      <input type="hidden" name="_captcha" value="false">
+      <label>Email:</label>
+      <input type="email" name="email" required />
 
-      <!-- Redirección tras envío (opcional) -->
-      <!-- <input type="hidden" name="_next" value="https://tusitio.com/gracias.html"> -->
-
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="5" required></textarea>
 
       <button type="submit" class="btn">Enviar</button>
     </form>
@@ -60,4 +53,5 @@
     <p>&copy; 2025 Miguel Vega. Todos los derechos reservados.</p>
   </footer>
 </body>
+
 </html>
