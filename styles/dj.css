@@ -54,6 +54,9 @@ header {
   color: #ff004f;
 }
 
+.hidden {
+  display: none;
+}
 /* ======================== */
 /* HERO SECTION */
 /* ======================== */
