@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Miguel Vega DJ</title>
   <link rel="stylesheet" href="styles/dj.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <nav>
@@ -33,24 +35,24 @@
       </ul>
     </div>
 
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-  <input type="hidden" name="form-name" value="contact" />
-  
-  <p class="hidden">
-    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-  </p>
+    <form name="contact" action="/contacto.html" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
 
-  <label>Nombre:</label>
-  <input type="text" name="nombre" required />
+      <p class="hidden">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </p>
 
-  <label>Email:</label>
-  <input type="email" name="email" required />
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required />
 
-  <label>Mensaje:</label>
-  <textarea name="mensaje" rows="5" required></textarea>
+      <label>Email:</label>
+      <input type="email" name="email" required />
 
-  <button type="submit" class="btn">Enviar</button>
-</form>
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Enviar</button>
+    </form>
 
   </main>
 
@@ -58,4 +60,5 @@
     <p>&copy; 2025 Miguel Vega. Todos los derechos reservados.</p>
   </footer>
 </body>
+
 </html>
