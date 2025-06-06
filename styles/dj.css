@@ -114,6 +114,11 @@ header {
   background-color: #e60045;
 }
 
+.volver-btn {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
 /* ======================== */
 /* ABOUT / SOBRE MÍ */
 /* ======================== */
