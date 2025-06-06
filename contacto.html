@@ -7,6 +7,7 @@
   <title>Contacto - Miguel Vega DJ</title>
   <link rel="stylesheet" href="styles/dj.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -29,33 +30,39 @@
       <p><strong>Email:</strong> <a href="mailto:info@miguelvegaglez.es">info@miguelvegaglez.es</a></p>
       <p><strong>Redes sociales:</strong></p>
       <ul class="socials">
-        <li><a href="https://www.instagram.com/miguelvegamusic" target="_blank">Instagram</a></li>
-        <li><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
-        <li><a href="https://www.facebook.com/miguelvegamusic" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/miguelvegamusic" target="_blank"><i class="fab fa-instagram"></i>
+            Instagram</a></li>
+        <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.facebook.com/miguelvegamusic" target="_blank"><i class="fab fa-facebook"></i>
+            Facebook</a></li>
+
       </ul>
     </div>
+    <h3>
+      Ponte en contacto desde aquí
+      <p><br></p>
+    </h3>
+    <form action="https://formsubmit.co/info@miguelvegaglez.es" method="POST" class="contact-form">
+      <!-- Evita SPAM con este campo oculto -->
+      <input type="text" name="_honey" style="display:none">
 
-  <form action="https://formsubmit.co/info@miguelvegaglez.es" method="POST" class="contact-form">
-  <!-- Evita SPAM con este campo oculto -->
-  <input type="text" name="_honey" style="display:none">
+      <!-- Evita que aparezca captcha -->
+      <input type="hidden" name="_captcha" value="false">
 
-  <!-- Evita que aparezca captcha -->
-  <input type="hidden" name="_captcha" value="false">
+      <!-- Redirección tras enviar -->
+      <input type="hidden" name="_next" value="https://miguelvegaglez.es/gracias.html">
 
-  <!-- Redirección tras enviar -->
-  <input type="hidden" name="_next" value="https://miguelvegaglez.es/gracias.html">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required>
 
-  <label>Nombre:</label>
-  <input type="text" name="nombre" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
 
-  <label>Email:</label>
-  <input type="email" name="email" required>
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="5" required></textarea>
 
-  <label>Mensaje:</label>
-  <textarea name="mensaje" rows="5" required></textarea>
-
-  <button type="submit" class="btn">Enviar</button>
-</form>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
 
 
   </main>

@@ -313,11 +313,32 @@ header {
 .socials {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .socials li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
+
+.socials a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #ff4081; /* o el color de acento de tu web */
+}
+
+/* Mejora para móviles */
+@media (max-width: 600px) {
+  .socials li {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+  }
+}
+
 
 .contact-form {
   display: flex;
