@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <!-- <header>
     <nav>
       <div class="logo">MIGUEL VEGA DJ</div>
       <ul class="menu">
@@ -18,7 +18,24 @@
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
-  </header>
+  </header> -->
+
+<header>
+  <div class="logo-container">
+    <a href="/" class="logo">MIGUEL VEGA DJ</a>
+  </div>
+  <nav class="navbar">
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+
 
   <section class="hero">
     <div class="overlay"></div>
@@ -36,5 +53,23 @@
   <footer>
     <p>&copy; 2025 MIGUEL VEGA. Todos los derechos reservados.</p>
   </footer>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+  // Cierra el menú al hacer clic en cualquier enlace
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('show');
+    });
+  });
+</script>
+
+
 </body>
 </html>
