@@ -8,21 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- <header>
-    <nav>
-      <div class="logo">MIGUEL VEGA DJ</div>
-      <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header> -->
 
 <header>
   <div class="logo-container">
-    <a href="/" class="logo">MIGUEL VEGA DJ</a>
+    <a href="index.html" class="logo">MIGUEL VEGA DJ</a>
   </div>
   <nav class="navbar">
     <button class="menu-toggle" id="menu-toggle">&#9776;</button>
@@ -51,8 +40,13 @@
   <p>Mi estilo es una fusión entre lo clásico y lo moderno, buscando siempre una conexión única con la pista de baile.</p>
 </section>
   <footer>
-    <p>&copy; 2025 MIGUEL VEGA. Todos los derechos reservados.</p>
-  </footer>
+  <p>&copy; 2025 MIGUEL VEGA. Todos los derechos reservados. <a href="politica-de-privacidad.html">Política de privacidad</a></p>
+</footer>
+
+<div class="cookie-consent-banner" id="cookieConsentBanner">
+  <p>Este sitio web puede utilizar cookies de terceros para mejorar tu experiencia de navegación (ej. Google Fonts). Para más información, consulta nuestra <a href="politica-de-privacidad.html" target="_blank">política de privacidad</a>.</p>
+  <button id="acceptCookies">Entendido</button>
+</div>
 
 <script>
   const toggle = document.getElementById('menu-toggle');
@@ -67,6 +61,45 @@
     link.addEventListener('click', () => {
       menu.classList.remove('show');
     });
+  });
+
+  // JavaScript para el aviso de cookies
+  const cookieBanner = document.getElementById('cookieConsentBanner');
+  const acceptButton = document.getElementById('acceptCookies');
+  const COOKIE_NAME = 'cookie_consent_understood'; // Nombre de la cookie adaptado
+
+  // Función para establecer una cookie
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  // Función para obtener una cookie
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i=0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  // Comprobar si ya se ha aceptado/entendido el aviso
+  if (getCookie(COOKIE_NAME)) {
+    cookieBanner.style.display = 'none';
+  }
+
+  // Evento para el botón de Entendido
+  acceptButton.addEventListener('click', () => {
+    setCookie(COOKIE_NAME, 'true', 365); // La cookie expira en 365 días
+    cookieBanner.style.display = 'none';
   });
 </script>
 
