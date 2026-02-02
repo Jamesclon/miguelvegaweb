@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Miguel Vega</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dev.css" />
+</head>
+
+<body class="lang-en">
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">MV<span>.dev</span></a>
+
+            <div style="display: flex; align-items: center;">
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" id="btn-es" onclick="setLanguage('es')">ES</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            </div>
+
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" data-lang="en">Home</a>
+                <a href="index.html" data-lang="es">Inicio</a>
+
+                <a href="developer.html" data-lang="en">Profile</a>
+                <a href="developer.html" data-lang="es">Perfil</a>
+
+                <a href="developer.html#experience" data-lang="en">Experience</a>
+                <a href="developer.html#experience" data-lang="es">Experiencia</a>
+
+                <a href="contacto-dev.html" data-lang="en">Contact</a>
+                <a href="contacto-dev.html" data-lang="es">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <section class="profile-card section-card animate-fade-up">
+            <h1 class="section-title">
+                <span data-lang="en">Let's talk about your next project</span>
+                <span data-lang="es">Hablemos de tu próximo proyecto</span>
+            </h1>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                <span data-lang="en">If you are looking for a backend developer for a custom solution, a robust API, or
+                    a complex integration, I would be happy to hear from you.</span>
+                <span data-lang="es">Si estás buscando un desarrollador backend para una solución a medida, una API
+                    robusta o una integración compleja, estaré encantado de escucharte.</span>
+            </p>
+
+            <div class="contact-grid">
+                <!-- Form Column -->
+                <div class="contact-form-container">
+                    <form action="https://formsubmit.co/info@miguelvegaglez.es" method="POST" class="contact-form">
+                        <!-- Spam Prevention & Config -->
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://miguelvegaglez.es/gracias.html">
+
+                        <!-- Dynamic Subject via JS -->
+                        <input type="hidden" name="_subject" id="email-subject"
+                            value="New message from Developer Website">
+
+                        <div class="form-group">
+                            <label for="name">
+                                <span data-lang="en">Full Name</span>
+                                <span data-lang="es">Nombre completo</span>
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Name / Nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <span data-lang="en">Email Address</span>
+                                <span data-lang="es">Correo electrónico</span>
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <span data-lang="en">How can I help you?</span>
+                                <span data-lang="es">¿En qué puedo ayudarte?</span>
+                            </label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 1rem;">
+                            <span data-lang="en">Send Message</span>
+                            <span data-lang="es">Enviar mensaje</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Column -->
+                <div class="contact-info-container">
+                    <ul class="contact-info-list">
+                        <li>
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4 data-lang="en">Direct Email</h4>
+                                <h4 data-lang="es">Email directo</h4>
+                                <a href="mailto:info@miguelvegaglez.es">info@miguelvegaglez.es</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4 data-lang="en">Location</h4>
+                                <h4 data-lang="es">Ubicación</h4>
+                                <p data-lang="en">Valladolid, Spain</p>
+                                <p data-lang="es">Valladolid, España</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/miguel-vega-gonzalez-developer/"
+                                    target="_blank">linkedin.com/in/miguel-vega-gonzalez-developer</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p data-lang="en">&copy; 2026 Miguel Vega. Software Developer.</p>
+            <p data-lang="es">&copy; 2026 Miguel Vega. Desarrollador de Software.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Spotlight Effect ---
+        const handleMouseMove = e => {
+            const cards = document.getElementsByClassName("section-card");
+            for (const card of cards) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            }
+        };
+        document.addEventListener("mousemove", handleMouseMove);
+
+        // --- Language Switcher ---
+        const subjectInput = document.getElementById('email-subject');
+        const messageArea = document.getElementById('message');
+
+        const placeholders = {
+            en: { message: "Tell me a bit about your project or query...", subject: "New message from Developer Website" },
+            es: { message: "Cuéntame un poco sobre tu proyecto o consulta...", subject: "Nuevo mensaje desde Web Developer" }
+        };
+
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            localStorage.setItem('preferred-lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + lang);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            if (messageArea) messageArea.placeholder = placeholders[lang].message;
+            if (subjectInput) subjectInput.value = placeholders[lang].subject;
+        }
+
+        // Initialize Language
+        const savedLang = localStorage.getItem('preferred-lang') || 'en';
+        setLanguage(savedLang);
+
+        // --- Mobile Menu ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>

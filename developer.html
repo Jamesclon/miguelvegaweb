@@ -4,48 +4,321 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miguel Vega | Desarrollador Backend</title>
+    <title>Miguel Vega | Lead Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/dev.css" />
 </head>
 
-<body>
+<body class="lang-en">
 
-    <header>
-        <h1>Miguel Vega - Desarrollador Backend</h1>
-    </header>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">MV<span>.dev</span></a>
 
-    <main>
-        <h2>Sobre mí</h2>
-        <p>Soy desarrollador backend con amplia experiencia en la creación de sistemas robustos y eficientes, utilizando
-            tecnologías como Java, C#, VB.NET y bases de datos SQL Server.</p>
-        <p>Trabajo tanto en entornos corporativos como en proyectos a medida, ofreciendo soluciones estables, seguras y
-            escalables.</p>
+            <div style="display: flex; align-items: center;">
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" id="btn-es" onclick="setLanguage('es')">ES</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            </div>
 
-        <h2>Especialidades</h2>
-        <div class="card">
-            <h3>Desarrollo Backend</h3>
-            <p>APIs RESTful, servicios web, automatización de procesos y lógica de negocio compleja.</p>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" data-lang="en">Home</a>
+                <a href="index.html" data-lang="es">Inicio</a>
+
+                <a href="#about" data-lang="en">About</a>
+                <a href="#about" data-lang="es">Sobre mí</a>
+
+                <a href="#experience" data-lang="en">Experience</a>
+                <a href="#experience" data-lang="es">Experiencia</a>
+
+                <a href="contacto-dev.html" data-lang="en">Contact</a>
+                <a href="contacto-dev.html" data-lang="es">Contacto</a>
+            </div>
         </div>
-        <div class="card">
-            <h3>Aplicaciones de Escritorio</h3>
-            <p>Desarrollo de herramientas empresariales en VB.NET y C#, integradas con bases de datos SQL.</p>
+    </nav>
+
+    <main class="profile-container">
+        <!-- Hero Section -->
+        <section class="profile-card hero animate-fade-up">
+            <div class="profile-header">
+                <div class="profile-img-container">
+                    <img src="images/miguel-vega.jpg" alt="Miguel Vega" class="profile-img">
+                </div>
+                <div class="profile-info">
+                    <div class="profile-info-content">
+                        <h1>Miguel Vega</h1>
+                        <p class="headline">
+                            <span data-lang="en">Senior Backend Developer | System Architect | SQL Server
+                                Specialist</span>
+                            <span data-lang="es">Senior Backend Developer | Arquitecto de Sistemas | Especialista en SQL
+                                Server</span>
+                        </p>
+                        <p class="location">
+                            <span data-lang="en">Valladolid, Spain</span>
+                            <span data-lang="es">Valladolid, España</span>
+                        </p>
+                        <div class="profile-actions">
+                            <a href="https://www.linkedin.com/in/miguel-vega-gonzalez-developer/" target="_blank"
+                                class="btn btn-primary">LinkedIn</a>
+                            <a href="contacto-dev.html" class="btn btn-secondary">
+                                <span data-lang="en">Contact</span>
+                                <span data-lang="es">Contactar</span>
+                            </a>
+                            <a href="mailto:info@miguelvegaglez.es" class="btn btn-secondary">Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="layout-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <section class="profile-card section-card animate-fade-up delay-1">
+                    <h2 class="section-title">
+                        <span data-lang="en">Key Skills</span>
+                        <span data-lang="es">Aptitudes Principales</span>
+                    </h2>
+                    <div class="skills-grid">
+                        <div class="skill-tag">VB.NET</div>
+                        <div class="skill-tag">C# / .NET</div>
+                        <div class="skill-tag">SQL Server</div>
+                        <div class="skill-tag">Android (Java)</div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Digital Signature</span>
+                            <span data-lang="es">Firma Electrónica</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Cryptography</span>
+                            <span data-lang="es">Criptografía</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Cybersecurity</span>
+                            <span data-lang="es">Ciberseguridad</span>
+                        </div>
+                        <div class="skill-tag">Unity 3D</div>
+                    </div>
+                </section>
+
+                <section class="profile-card section-card animate-fade-up delay-2">
+                    <h2 class="section-title">Soft Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-tag">
+                            <span data-lang="en">Active Listening</span>
+                            <span data-lang="es">Escucha Activa</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">User Analysis</span>
+                            <span data-lang="es">Análisis de Usuario</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Problem Solving</span>
+                            <span data-lang="es">Resolución de Problemas</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Communication</span>
+                            <span data-lang="es">Comunicación</span>
+                        </div>
+                        <div class="skill-tag">
+                            <span data-lang="en">Process Improvement</span>
+                            <span data-lang="es">Mejora de Procesos</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="profile-card section-card animate-fade-up delay-3">
+                    <h2 class="section-title">
+                        <span data-lang="en">Languages</span>
+                        <span data-lang="es">Idiomas</span>
+                    </h2>
+                    <ul class="simple-list">
+                        <li>
+                            <strong data-lang="en">Spanish</strong>
+                            <strong data-lang="es">Español</strong>
+                            <span data-lang="en">(Native)</span>
+                            <span data-lang="es">(Nativo)</span>
+                        </li>
+                        <li>
+                            <strong data-lang="en">English</strong>
+                            <strong data-lang="es">Inglés</strong>
+                            <span data-lang="en">(B1 Level - Professional)</span>
+                            <span data-lang="es">(Nivel B1 - Profesional)</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="profile-card section-card animate-fade-up delay-4">
+                    <h2 class="section-title">
+                        <span data-lang="en">Certifications</span>
+                        <span data-lang="es">Certificaciones</span>
+                    </h2>
+                    <ul class="simple-list">
+                        <li>MTA 98-361 (Software Dev)</li>
+                        <li>MTA 98-375 (HTML5)</li>
+                        <li data-lang="en">Ethical Hacking & Cybersecurity</li>
+                        <li data-lang="es">Hacking Ético y Ciberseguridad</li>
+                        <li data-lang="en">Computer Forensics</li>
+                        <li data-lang="es">Informática Forense</li>
+                        <li data-lang="en">Game Development (Unity 3D)</li>
+                        <li data-lang="es">Creación de Videojuegos (Unity 3D)</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <section id="about" class="profile-card section-card animate-fade-up delay-1">
+                    <h2 class="section-title">
+                        <span data-lang="en">My Journey</span>
+                        <span data-lang="es">Mi Trayectoria</span>
+                    </h2>
+                    <div data-lang="en">
+                        <p><strong>My career path is unconventional, and that is my greatest strength.</strong> For a
+                            decade, I worked in marketing and customer service, where I learned the most vital lesson
+                            for any technical development: <strong>listening to and understanding what the user truly
+                                needs.</strong></p>
+                        <p style="margin-top: 1rem;">For the past 3 years, I have been translating those needs into
+                            programming languages. I am passionate about technical problem solving and continuous
+                            process improvement through code, actively working on solutions within .NET and mobile
+                            environments.</p>
+                    </div>
+                    <div data-lang="es">
+                        <p><strong>Mi trayectoria es poco convencional y esa es mi mayor fortaleza.</strong> Durante una
+                            década, trabajé en marketing y atención al cliente, donde aprendí lo más importante para
+                            cualquier desarrollo técnico: <strong>escuchar y entender lo que el usuario realmente
+                                necesita.</strong></p>
+                        <p style="margin-top: 1rem;">Desde hace 3 años, traduzco esas necesidades al lenguaje de
+                            programación. Soy un apasionado de la resolución de problemas técnicos y de la mejora
+                            continua de procesos a través del código, trabajando activamente en soluciones bajo
+                            entornos .NET y movilidad.</p>
+                    </div>
+                </section>
+
+                <section id="experience" class="profile-card section-card animate-fade-up delay-2">
+                    <h2 class="section-title">
+                        <span data-lang="en">Focus & Competencies</span>
+                        <span data-lang="es">Enfoque y Competencias</span>
+                    </h2>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 data-lang="en">Software Solution Development</h3>
+                            <h3 data-lang="es">Desarrollo de Soluciones de Software</h3>
+                            <p class="company" data-lang="en">.NET & SQL Server Specialist</p>
+                            <p class="company" data-lang="es">Especialista en Entorno .NET y SQL Server</p>
+                        </div>
+                        <p class="description" data-lang="en">Developing and maintaining robust software using Visual
+                            Basic .NET and C#. Advanced SQL Server database management and migration of legacy
+                            solutions to modern and mobile environments.</p>
+                        <p class="description" data-lang="es">Desarrollo y mantenimiento de software robusto utilizando
+                            Visual Basic .NET y C#. Gestión avanzada de bases de datos SQL Server y migración de
+                            soluciones heredadas a entornos modernos y móviles.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 data-lang="en">Mobile & Multiplatform Development</h3>
+                            <h3 data-lang="es">Desarrollo Móvil y Multiplataforma</h3>
+                            <p class="company" data-lang="en">Android (Java) & Personal Projects</p>
+                            <p class="company" data-lang="es">Android (Java) & Proyectos Propios</p>
+                        </div>
+                        <p class="description" data-lang="en">Creating mobile applications, staying updated with
+                            current trends and experimenting with multiplatform development to offer accessible
+                            solutions from anywhere.</p>
+                        <p class="description" data-lang="es">Creación de aplicaciones móviles, manteniéndome al día con
+                            las tendencias actuales y experimentando con el desarrollo multiplataforma para ofrecer
+                            soluciones accesibles desde cualquier lugar.</p>
+                    </div>
+                </section>
+
+                <section id="specialties" class="profile-card section-card animate-fade-up delay-3">
+                    <h2 class="section-title">
+                        <span data-lang="en">Technical Specialties</span>
+                        <span data-lang="es">Especialidades Técnicas</span>
+                    </h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔐</div>
+                            <h4 data-lang="en">Security & Signature</h4>
+                            <h4 data-lang="es">Seguridad y Firma</h4>
+                            <p data-lang="en">Implementation of cryptography and digital certificates.</p>
+                            <p data-lang="es">Implementación de criptografía y certificados digitales.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛠️</div>
+                            <h4 data-lang="en">Automation</h4>
+                            <h4 data-lang="es">Automatización</h4>
+                            <p data-lang="en">Optimization of critical business processes.</p>
+                            <p data-lang="es">Optimización de procesos críticos de negocio.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <h4 data-lang="en">Cybersecurity</h4>
+                            <h4 data-lang="es">Ciberseguridad</h4>
+                            <p data-lang="en">Knowledge in computer security and forensics.</p>
+                            <p data-lang="es">Conocimientos en seguridad informática y forense.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-        <div class="card">
-            <h3>Aplicaciones móviles</h3>
-            <p>Diseño y desarrollo de apps en entorno móvil (Android y Apple).</p>
-        </div>
-        <div class="card">
-            <h3>Base de Datos</h3>
-            <p>Modelado, optimización y mantenimiento de bases de datos en SQL Server y MySQL.</p>
-        </div>
-        <h2>Contacto</h2>
-        <p>Si necesitas una solución backend o una aplicación interna para tu empresa, no dudes en escribirme a <a
-                href="mailto:info@miguelvegaglez.es">info@miguelvegaglez.es</a>.</p>
     </main>
 
-    <footer>
-        &copy; 2025 Miguel Vega - Desarrollador Backend
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p data-lang="en">&copy; 2026 Miguel Vega. Software Developer.</p>
+            <p data-lang="es">&copy; 2026 Miguel Vega. Desarrollador de Software.</p>
+        </div>
     </footer>
+
+    <script>
+        // --- Spotlight Effect ---
+        const handleMouseMove = e => {
+            const cards = document.getElementsByClassName("section-card");
+            for (const card of cards) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            }
+        };
+        document.addEventListener("mousemove", handleMouseMove);
+
+        // --- Language Switcher ---
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            localStorage.setItem('preferred-lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + lang);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+
+        // Initialize Language
+        const savedLang = localStorage.getItem('preferred-lang') || 'en';
+        setLanguage(savedLang);
+
+        // --- Mobile Menu ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+        }
+    </script>
 
 </body>
 
