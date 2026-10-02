@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Producción - Miguel Vega DJ</title>
+  <link rel="stylesheet" href="styles/dj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="dj.html" class="logo">MIGUEL VEGA DJ</a>
+    </div>
+    <nav class="navbar">
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="dj.html">Inicio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="produccion.html">Producción</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eventos-container">
+    <h1>Producción</h1>
+    <div class="proximamente-box">
+      <h2>Próximamente</h2>
+      <p>Nuevos temas, remixes y producciones musicales en camino. ¡Mantente al tanto!</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MIGUEL VEGA. Todos los derechos reservados. <a href="politica-de-privacidad.html">Política de privacidad</a></p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

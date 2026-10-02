@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eventos - Miguel Vega DJ</title>
   <link rel="stylesheet" href="styles/dj.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<header>
-  <div class="logo-container">
-    <a href="/" class="logo">MIGUEL VEGA DJ</a>
-  </div>
-  <nav class="navbar">
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-    <ul class="menu" id="menu">
-      <li><a href="dj.html">Inicio</a></li>
-      <li><a href="galeria.html">Galería</a></li>
-      <li><a href="eventos.html">Eventos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <div class="logo-container">
+      <a href="dj.html" class="logo">MIGUEL VEGA DJ</a>
+    </div>
+    <nav class="navbar">
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="dj.html">Inicio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="produccion.html">Producción</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="eventos-container">
     <h1>Próximos Eventos</h1>
@@ -29,11 +32,18 @@
       <button class="carousel-btn left" onclick="scrollCarousel('proximos', -1)">&#10094;</button>
       <div class="carousel" id="proximos">
         <!-- Próximos Eventos -->
-        <div class="event-card"><img src="images/eventos/concursojamon.jpeg" /><h3>Concurso nacional cortadores de jamón</h3><p>Junio 2026</p></div>
-        <div class="event-card"><img src="images/eventos/unknownplace.png" /><h3>Evento privado</h3><p>Julio 2026</p></div>
-        <div class="event-card"><img src="images/eventos/unknownplace.png" /><h3>Fiestas San Juan</h3><p>Agosto 2026</p></div>
-        <div class="event-card"><img src="images/eventos/unknownplace.png" /><h3>Evento privado</h3><p>Septiembre 2026</p></div>
-        
+        <div class="event-card"><img src="images/eventos/unknownplace.png" />
+          <h3>Evento privado</h3>
+          <p>Noviembre 2026</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/unknownplace.png" />
+          <h3>Fiesta Fin de Año</h3>
+          <p>Diciembre 2026</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/unknownplace.png" />
+          <h3>Evento privado</h3>
+          <p>Marzo 2027</p>
+        </div>
       </div>
       <button class="carousel-btn right" onclick="scrollCarousel('proximos', 1)">&#10095;</button>
     </div>
@@ -43,17 +53,58 @@
       <button class="carousel-btn left" onclick="scrollCarousel('pasados', -1)">&#10094;</button>
       <div class="carousel" id="pasados">
         <!-- Eventos Pasados -->
-        <div class="event-card"><img src="images/eventos/agosto26sanjuan.jpeg" /><h3>San Juan SOTO DE VALDERRUEDA</h3><p>29 Agosto 2025</p></div>
-        <div class="event-card"><img src="images/eventos/marzo24portacaeli.jpg" /><h3>Porta Caeli VALLADOLID</h3><p>27 Marzo 2024</p></div>
-        <div class="event-card"><img src="images/eventos/junio23lobo.jpg" /><h3>LOBO MADRID</h3><p>3 Junio 2023</p></div>
-        <div class="event-card"><img src="images/eventos/enero23pinguinos.jpg" /><h3>Main Stage Pingüinos VALLADOLID</h3><p>13 Enero 2023</p></div>
-        <div class="event-card"><img src="images/eventos/mayo23castillo.jpg" /><h3>Fiesta LPR en el Castillo VILLALONSO</h3><p>20 mayo 2023</p></div>
-        <div class="event-card"><img src="images/eventos/agosto22tiedra.jpg" /><h3>Fiesta de la Lavanda TIEDRA</h3><p>26 Agosto 2022</p></div>
-        <div class="event-card"><img src="images/eventos/septiembre22vermut.jpg" /><h3>Vermuteria La Geniaaall VALLADOLID</h3><p>03 Septiembre 2022</p></div>
-        <div class="event-card"><img src="images/eventos/abril23ted.jpeg" /><h3>Tedx VALLADOLID </h3><p>5 Abril 2023</p></div>
-        <div class="event-card"><img src="images/eventos/octubre22simancas.jpg" /><h3>Fiesta Halloween SIMANCAS</h3><p>31 Octubre 2022</p></div>
-        <div class="event-card"><img src="images/eventos/diciembre22navsimancas.jpg" /><h3>Mercado Plaza Mayor SIMANCAS</h3><p>18 Diciembre 2022</p></div>
-        <div class="event-card"><img src="images/eventos/julio22piscina.jpg" /><h3>Fiesta piscina municipal SIMANCAS </h3><p>26 Julio 2022</p></div>
+        <div class="event-card"><img src="images/eventos/agosto29soto.jpeg" />
+          <h3>San Juan SOTO DE VALDERRUEDA</h3>
+          <p>29 Agosto 2026</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/junio26jamon.jpeg" />
+          <h3>Concurso nacional cortadores de jamón</h3>
+          <p>21 Junio 2026</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/agosto26sanjuan.jpeg" />
+          <h3>Fiestas San Juan</h3>
+          <p>26 Agosto 2025</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/marzo24portacaeli.jpg" />
+          <h3>Porta Caeli VALLADOLID</h3>
+          <p>27 Marzo 2024</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/junio23lobo.jpg" />
+          <h3>LOBO MADRID</h3>
+          <p>3 Junio 2023</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/enero23pinguinos.jpg" />
+          <h3>Main Stage Pingüinos VALLADOLID</h3>
+          <p>13 Enero 2023</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/mayo23castillo.jpg" />
+          <h3>Fiesta LPR en el Castillo VILLALONSO</h3>
+          <p>20 mayo 2023</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/agosto22tiedra.jpg" />
+          <h3>Fiesta de la Lavanda TIEDRA</h3>
+          <p>26 Agosto 2022</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/septiembre22vermut.jpg" />
+          <h3>Vermuteria La Geniaaall VALLADOLID</h3>
+          <p>03 Septiembre 2022</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/abril23ted.jpeg" />
+          <h3>Tedx VALLADOLID </h3>
+          <p>5 Abril 2023</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/octubre22simancas.jpg" />
+          <h3>Fiesta Halloween SIMANCAS</h3>
+          <p>31 Octubre 2022</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/diciembre22navsimancas.jpg" />
+          <h3>Mercado Plaza Mayor SIMANCAS</h3>
+          <p>18 Diciembre 2022</p>
+        </div>
+        <div class="event-card"><img src="images/eventos/julio22piscina.jpg" />
+          <h3>Fiesta piscina municipal SIMANCAS </h3>
+          <p>26 Julio 2022</p>
+        </div>
       </div>
       <button class="carousel-btn right" onclick="scrollCarousel('pasados', 1)">&#10095;</button>
     </div>
@@ -61,9 +112,10 @@
 
   <footer>
     <p>Tus eventos no aparecerán aquí o en redes salvo que lo solicites expresamente.</p>
-  <p>&copy; 2025 MIGUEL VEGA. Todos los derechos reservados. <a href="politica-de-privacidad.html">Política de privacidad</a></p>
+    <p>&copy; 2026 MIGUEL VEGA. Todos los derechos reservados. <a href="politica-de-privacidad.html">Política de
+        privacidad</a></p>
   </footer>
-  
+
   <script>
     function scrollCarousel(id, direction) {
       const container = document.getElementById(id);
@@ -73,22 +125,22 @@
         behavior: "smooth"
       });
     }
-  </script> 
+  </script>
   <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
-
-  // Cierra el menú al hacer clic en cualquier enlace
-  document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('show');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
     });
-  });
-</script> 
-</body>
-</html>
 
+    // Cierra el menú al hacer clic en cualquier enlace
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+
+</html>
