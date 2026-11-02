@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: "es"
+
+# Carpeta donde se guardan las imágenes subidas desde el panel
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "contenido_web"
+    label: "Contenidos de la Web (Pinar de Jalón)"
+    files:
+      # 1. Gestión de Agenda de Eventos (data/eventos.json)
+      - name: "eventos"
+        label: "📅 Agenda de Eventos"
+        file: "data/eventos.json"
+        format: "json"
+        fields:
+          - label: "Lista de Eventos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.dia}} {{fields.mes}} - {{fields.titulo}}"
+            fields:
+              - { label: "ID numérico", name: "id", widget: "number", value_type: "int" }
+              - { label: "Título del evento", name: "titulo", widget: "string" }
+              - { label: "Fecha completa (dd/mm/yyyy)", name: "fecha", widget: "string" }
+              - { label: "Día (ej. 15)", name: "dia", widget: "string" }
+              - { label: "Mes abreviado (ej. NOV)", name: "mes", widget: "string" }
+              - { label: "Hora (ej. 10:00 h)", name: "hora", widget: "string" }
+              - { label: "Lugar", name: "lugar", widget: "string", default: "Pinar de Jalón (Plaza Everest)" }
+              - { label: "Texto de estado / cuenta atrás (ej. ⏳ Faltan 4 días o ✓ Celebrado)", name: "cuentaAtras", widget: "string" }
+              - { label: "¿Es un evento ya celebrado?", name: "esPasado", widget: "boolean", default: false }
+              - label: "Categoría de la actividad"
+                name: "categoria"
+                widget: "select"
+                options: ["Deportes", "Infantil", "MedioAmbiente", "Cultura", "Fiestas"]
+                default: "Cultura"
+              - { label: "Imagen del evento", name: "imagen", widget: "image", required: false }
+              - { label: "URL de imagen de respaldo (Unsplash)", name: "imagenFallback", widget: "string", required: false }
+              - { label: "Descripción de la actividad", name: "descripcion", widget: "text" }
+              - { label: "Enlace a Google Calendar (solo futuros)", name: "enlaceCalendar", widget: "string", required: false }
+              - { label: "Texto para compartir en WhatsApp", name: "textoWhatsApp", widget: "text", required: false }
+
+      # 2. Gestión de Muro Comunitario / Noticias (data/noticias.json)
+      - name: "noticias"
+        label: "💬 Muro Comunitario y Comunicados"
+        file: "data/noticias.json"
+        format: "json"
+        fields:
+          - label: "Publicaciones del Muro"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.fecha}} - {{fields.titulo}}"
+            fields:
+              - { label: "ID único", name: "id", widget: "string" }
+              - { label: "Titular del comunicado", name: "titulo", widget: "string" }
+              - { label: "Fecha (dd/mm/yyyy)", name: "fecha", widget: "string" }
+              - { label: "Tiempo relativo (ej. Hace 2 días, Octubre 2026)", name: "tiempoRelativo", widget: "string" }
+              - { label: "Ubicación / Área", name: "ubicacion", widget: "string", default: "Valladolid" }
+              - { label: "Autor", name: "autor", widget: "string", default: "AAVV Pinar de Jalón" }
+              - { label: "Imagen opcional", name: "imagen", widget: "image", required: false }
+              - { label: "Resumen / Texto de la publicación", name: "resumen", widget: "text" }
+              - label: "Etiquetas / Hashtags (sin #)"
+                name: "etiquetas"
+                widget: "list"
+                default: ["Movilidad"]
+              - { label: "Contador inicial de Me gusta (♥)", name: "likes", widget: "number", default: 10, value_type: "int" }
+              - { label: "Enlace del comunicado", name: "enlaceUrl", widget: "string", default: "noticias.html" }
+
+      # 3. Gestión de Historias Destacadas / Stories (data/historias.json)
+      - name: "historias"
+        label: "🟢 Barra de Stories Destacadas"
+        file: "data/historias.json"
+        format: "json"
+        fields:
+          - label: "Lista de Stories"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.icono}} {{fields.etiqueta}} - {{fields.titulo}}"
+            fields:
+              - { label: "ID único", name: "id", widget: "string" }
+              - { label: "Etiqueta corta bajo el círculo", name: "etiqueta", widget: "string" }
+              - { label: "Emoji / Icono", name: "icono", widget: "string" }
+              - label: "Color del anillo"
+                name: "claseAnillo"
+                widget: "select"
+                options:
+                  - { label: "Verde activo", value: "ring-active" }
+                  - { label: "Naranja cálido", value: "ring-warm" }
+                  - { label: "Gris estándar", value: "" }
+                default: "ring-active"
+              - { label: "Mostrar punto verde activo", name: "puntoActivo", widget: "boolean", default: false }
+              - { label: "Título al abrir la historia", name: "titulo", widget: "string" }
+              - { label: "Texto completo de la historia", name: "resumen", widget: "text" }
+
+      # 4. Gestión de Galería Multimedia de Fotos y Vídeos (data/galeria.json)
+      - name: "galeria"
+        label: "📸 Galería Multimedia (Fotos y Vídeos)"
+        file: "data/galeria.json"
+        format: "json"
+        fields:
+          - label: "Elementos de la Galería"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.fecha}} [{{fields.tipo}}] - {{fields.titulo}}"
+            fields:
+              - { label: "ID numérico", name: "id", widget: "number", value_type: "int" }
+              - label: "Tipo de archivo"
+                name: "tipo"
+                widget: "select"
+                options:
+                  - { label: "📷 Fotografía", value: "imagen" }
+                  - { label: "🎬 Vídeo (MP4 / YouTube / Reel)", value: "video" }
+                default: "imagen"
+              - { label: "URL del archivo (ruta en img/, vídeo .mp4 o enlace de YouTube)", name: "url", widget: "string" }
+              - { label: "Miniatura / Portada", name: "miniatura", widget: "image" }
+              - { label: "Miniatura de respaldo (Unsplash opcional)", name: "miniaturaFallback", widget: "string", required: false }
+              - { label: "Título del momento", name: "titulo", widget: "string" }
+              - { label: "Fecha (dd/mm/yyyy)", name: "fecha", widget: "string" }
+              - { label: "Me gusta iniciales (♥)", name: "likes", widget: "number", default: 50, value_type: "int" }
+              - label: "Categoría temática"
+                name: "categoria"
+                widget: "select"
+                options: ["Fiestas", "Deportes", "Naturaleza", "Comunidad"]
+                default: "Comunidad"
+              - { label: "Pie de foto / Descripción o hashtags", name: "pie", widget: "text" }
+

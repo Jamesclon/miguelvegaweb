@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "id": "local-kilimanjaro",
+      "etiqueta": "Nuevo Local",
+      "icono": "🏠",
+      "claseAnillo": "ring-active",
+      "puntoActivo": true,
+      "titulo": "🏠 Nuevo Local en C/ Kilimanjaro 4",
+      "resumen": "¡Por fin nos ha sido adjudicado el local para la asociación en la calle Kilimanjaro 4! Muy pronto comunicaremos los horarios de apertura para actividades y reuniones vecinales."
+    },
+    {
+      "id": "jalonween",
+      "etiqueta": "Jalonween",
+      "icono": "🎃",
+      "claseAnillo": "ring-warm",
+      "puntoActivo": true,
+      "titulo": "🎃 JALONWEEN · Escape Room 'El Ritual'",
+      "resumen": "Escape Room 'El Ritual' de 16:00 a 22:00h en el local de la asociación (C/ Kilimanjaro 4 · Socios 2€ / No socios 4€) y Baile de disfraces desde las 19:00h en el parque con DJ @danigarciia18."
+    },
+    {
+      "id": "jalonrun",
+      "etiqueta": "JalonRun",
+      "icono": "🏃",
+      "claseAnillo": "ring-warm",
+      "puntoActivo": false,
+      "titulo": "🏃 Tradicional JalonRun Navideña",
+      "resumen": "Carrera popular navideña de Pinar de Jalón con salida en la Plaza Everest / Calle Aneto. Recogida de bolsa del corredor y dorsales desde las 10:00 h."
+    },
+    {
+      "id": "luce-jalon",
+      "etiqueta": "Luce Jalón",
+      "icono": "✨",
+      "claseAnillo": "ring-active",
+      "puntoActivo": false,
+      "titulo": "✨ Concurso Navideño 'Luce Jalón'",
+      "resumen": "Concurso de decoración e iluminación navideña de balcones y fachadas del barrio valorando estética, diseño y creatividad. Inscripciones: navidadpinardejalon@gmail.com"
+    },
+    {
+      "id": "repinar",
+      "etiqueta": "RePinar",
+      "icono": "🌲",
+      "claseAnillo": "ring-active",
+      "puntoActivo": false,
+      "titulo": "🌲 Proyecto de Renaturalización RePinar",
+      "resumen": "Propuesta de anillo verde alrededor del barrio, acondicionamiento deportivo y natural de la parcela de C/ Aneto, parque canino y refugio de fauna en el Canal del Duero."
+    },
+    {
+      "id": "auvasa-bus",
+      "etiqueta": "AUVASA y Bus",
+      "icono": "🚌",
+      "claseAnillo": "ring-active",
+      "puntoActivo": false,
+      "titulo": "🚌 Línea 4, Búho y Transporte Escolar",
+      "resumen": "Reuniones con AUVASA para mejorar frecuencias de la Línea 4 y ampliar el Búho (00:00, 01:00 y 02:00h), además del grupo de trabajo por el transporte escolar a los IES Condesa Eylo y Pinar de la Rubia."
+    },
+    {
+      "id": "farmacia-sacyl",
+      "etiqueta": "Farmacia",
+      "icono": "💊",
+      "claseAnillo": "",
+      "puntoActivo": false,
+      "titulo": "💊 Instalación de Farmacia en el Barrio",
+      "resumen": "Solicitud a la Junta de Castilla y León, apoyo de Procuradores en las Cortes y reuniones con empresarios tras la actualización de criterios de Sacyl para abrir farmacias."
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Histórico de noticias, comunicados oficiales, actas y avisos de la Asociación Vecinal Pinar de Jalón (Valladolid).">
+    <title>Histórico de Noticias y Comunicados · AAVV Pinar de Jalón</title>
+
+    <!-- Favicon con respaldo automático -->
+    <link rel="icon" href="img/logo.avif" type="image/avif">
+    <link rel="alternate icon" href="img/logo.png" type="image/png">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- =====================================================================
+         1. BARRA DE AVISOS SUPERIOR & HEADER STICKY
+         ===================================================================== -->
+    <div class="top-notice-bar" role="region" aria-label="Aviso destacado del barrio">
+        <div class="container top-notice-inner">
+            <p class="notice-text">
+                <span class="notice-badge">NUEVO LOCAL</span>
+                📢 Ya tenemos adjudicado el nuevo local de la asociación en la Calle Kilimanjaro 4
+            </p>
+            <a href="#nuevo-local-asociacion-kilimanjaro" class="notice-link">Ir al aviso &darr;</a>
+        </div>
+    </div>
+
+    <header class="site-header" id="top">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand" aria-label="Asociación Vecinal Pinar de Jalón - Ir al inicio">
+                <img src="img/logo.png"
+                     onerror="this.onerror=null;this.src='img/logo.avif';"
+                     alt="Logo Asociación Vecinal Pinar de Jalón"
+                     class="brand-logo"
+                     width="46"
+                     height="46">
+                <div class="brand-text">
+                    <span class="brand-title">Pinar de Jalón</span>
+                    <span class="brand-subtitle">Asociación Vecinal · Valladolid</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="index.html#historias" class="nav-link">Historias</a></li>
+                    <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+                    <li><a href="noticias.html" class="nav-link active" aria-current="page">Noticias</a></li>
+                    <li><a href="galeria.html" class="nav-link">Galería</a></li>
+                    <li><a href="index.html#participa" class="nav-link">Participa</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+
+                <a href="https://api.whatsapp.com/send?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Asociaci%C3%B3n%20Vecinal%20Pinar%20de%20Jal%C3%B3n"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-pill-whatsapp">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.856l-1.529 5.584 5.735-1.504c1.693.924 3.633 1.452 5.697 1.452 6.627 0 12-5.373 12-12s-5.373-12-12.432-11.388z"/>
+                    </svg>
+                    <span>Canal Vecinal</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- =====================================================================
+             2. HERO DE ARCHIVO CON BUSCADOR Y FILTROS
+             ===================================================================== -->
+        <section class="archive-hero-section">
+            <div class="container">
+                <div class="archive-hero-card">
+                    <div class="archive-hero-top">
+                        <a href="index.html" class="back-home-link">&larr; Volver a la portada</a>
+                        <span class="section-pill pill-light">🗞️ Hemeroteca Vecinal</span>
+                    </div>
+
+                    <h1 class="archive-hero-title">Histórico de Noticias y Comunicados</h1>
+                    <p class="archive-hero-subtitle">
+                        Consulta todas las gestiones con el Ayuntamiento, actas de asambleas, seguimiento de reivindicaciones y crónicas de actividades de Pinar de Jalón.
+                    </p>
+
+                    <!-- Barra de búsqueda instantánea + Píldoras de filtrado -->
+                    <div class="archive-controls">
+                        <div class="search-input-wrap">
+                            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="search"
+                                   id="news-search-input"
+                                   placeholder="Buscar por palabra clave (ej. AUVASA, carril bici, pinar, fiestas...)"
+                                   aria-label="Buscar noticias por palabra clave"
+                                   autocomplete="off">
+                        </div>
+
+                        <div class="feed-filter-tags archive-filter-tags" role="group" aria-label="Filtrar comunicados por categoría">
+                            <button type="button" class="tag-filter active" data-filter="all">Todas</button>
+                            <button type="button" class="tag-filter" data-filter="Movilidad">#Movilidad</button>
+                            <button type="button" class="tag-filter" data-filter="PinarLimpio">#PinarLimpio</button>
+                            <button type="button" class="tag-filter" data-filter="Cultura">#Cultura</button>
+                            <button type="button" class="tag-filter" data-filter="Sanidad">#Sanidad</button>
+                            <button type="button" class="tag-filter" data-filter="Asamblea">#Asamblea</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             3. GRID DE PUBLICACIONES Y PAGINACIÓN PROGRESIVA
+             ===================================================================== -->
+        <section class="section archive-feed-section">
+            <div class="container">
+                <!-- Contador de resultados -->
+                <div class="archive-status-bar">
+                    <p id="archive-results-count" class="results-counter" aria-live="polite">
+                        Cargando publicaciones...
+                    </p>
+                    <button type="button" id="reset-filters-btn" class="reset-filters-btn" hidden>
+                        Limpiar filtros &times;
+                    </button>
+                </div>
+
+                <!-- Contenedor dinámico de tarjetas -->
+                <div id="archive-news-container" class="social-feed-grid" aria-live="polite">
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                    <div class="card-skeleton" aria-hidden="true"></div>
+                </div>
+
+                <!-- Botón inferior de paginación progresiva -->
+                <div class="load-more-wrap">
+                    <button type="button" id="load-more-btn" class="btn btn-outline-dark load-more-btn" hidden>
+                        Cargar más noticias históricas &darr;
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         4. FOOTER INSTITUCIONAL COMPLETO
+         ===================================================================== -->
+    <footer id="contacto" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col-brand">
+                    <a href="index.html" class="brand footer-brand">
+                        <img src="img/logo.png"
+                             onerror="this.onerror=null;this.src='img/logo.avif';"
+                             alt="Logo Asociación Vecinal Pinar de Jalón"
+                             class="brand-logo"
+                             width="48"
+                             height="48">
+                        <div class="brand-text">
+                            <span class="brand-title">AAVV Pinar de Jalón</span>
+                            <span class="brand-subtitle">Hacemos barrio · Valladolid</span>
+                        </div>
+                    </a>
+                    <p class="footer-bio">
+                        Asociación Vecinal sin ánimo de lucro constituida para la defensa de los intereses vecinales, el fomento de la vida comunitaria y la conservación del entorno natural de Pinar de Jalón (47008 Valladolid).
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="social-icon">
+                            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="mailto:contacto@aavvpinardejalon.es" aria-label="Correo electrónico" class="social-icon">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Secciones</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#inicio">Inicio y Estado del Barrio</a></li>
+                        <li><a href="index.html#historias">Historias Destacadas</a></li>
+                        <li><a href="eventos.html">Agenda de Eventos</a></li>
+                        <li><a href="noticias.html">Histórico de Noticias</a></li>
+                        <li><a href="galeria.html">Galería Multimedia</a></li>
+                        <li><a href="index.html#participa">Buzón Vecinal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contacto Vecinal</h3>
+                    <ul class="footer-links">
+                        <li>📍 Barrio Pinar de Jalón, 47008 Valladolid</li>
+                        <li>✉️ <a href="mailto:contacto@aavvpinardejalon.es">contacto@aavvpinardejalon.es</a></li>
+                        <li>💬 <a href="https://api.whatsapp.com/send?text=Hola%20AAVV%20Pinar%20de%20Jal%C3%B3n" target="_blank" rel="noopener noreferrer">Canal oficial de WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Asociación Vecinal Pinar de Jalón (Valladolid). Inscrita en el Registro de Asociaciones conforme a la Ley Orgánica 1/2002.</p>
+                <div class="footer-legal-links">
+                    <a href="#contacto">Aviso Legal</a>
+                    <a href="#contacto">Política de Privacidad</a>
+                    <a href="#contacto">Estatutos</a>
+                    <a href="/admin/" rel="nofollow" class="admin-link">🔒 Acceso Gestión</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         VISOR LIGHTBOX PARA IMÁGENES DE PUBLICACIONES
+         ===================================================================== -->
+    <div class="lightbox-backdrop" id="image-lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
+        <div class="lightbox-dialog">
+            <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+            <img src="" alt="" id="lightbox-img" class="lightbox-img">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Script controlador del archivo de noticias -->
+    <script src="js/noticias-archivo.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "tipo": "imagen",
+      "url": "img/inicio.avif",
+      "miniatura": "img/inicio.avif",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=800&q=80",
+      "titulo": "Amanecer con globos sobre Pinar de Jalón",
+      "fecha": "18/10/2026",
+      "likes": 142,
+      "categoria": "Naturaleza",
+      "pie": "Vista matinal de los globos aerostáticos sobrevolando los edificios y zonas verdes de nuestro barrio 🎈🌲 #BarrioPinarDeJalón"
+    },
+    {
+      "id": 2,
+      "tipo": "video",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      "miniatura": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+      "titulo": "Resumen de las V Fiestas de Pinar de Jalón",
+      "fecha": "27/09/2026",
+      "likes": 198,
+      "categoria": "Fiestas",
+      "pie": "Tres días inolvidables de convivencia, peñas, electrocharanga y actividades familiares en la Plaza Everest y C/ Kilimanjaro 🎉🤝 #FiestasPinarDeJalón"
+    },
+    {
+      "id": 3,
+      "tipo": "imagen",
+      "url": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=80",
+      "miniatura": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80",
+      "titulo": "JalonRun: Salida popular en Plaza Everest",
+      "fecha": "28/12/2025",
+      "likes": 165,
+      "categoria": "Deportes",
+      "pie": "Ambiente deportivo en la salida de la tradicional carrera navideña JalonRun por los caminos del pinar 🏃‍♂️🌲 #JalonRun #DeporteVecinal"
+    },
+    {
+      "id": 4,
+      "tipo": "video",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "miniatura": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "titulo": "Ruta por el Canal del Duero y el Pinar",
+      "fecha": "14/06/2026",
+      "likes": 114,
+      "categoria": "Naturaleza",
+      "pie": "Recorrido en vídeo por los senderos naturales del pinar y las riberas del Canal del Duero dentro del proyecto ambiental RePinar 🌿🦆 #RePinar"
+    },
+    {
+      "id": 5,
+      "tipo": "imagen",
+      "url": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=1200&q=80",
+      "miniatura": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=700&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=700&q=80",
+      "titulo": "Luce Jalón: Balcones y fachadas iluminadas",
+      "fecha": "22/12/2025",
+      "likes": 153,
+      "categoria": "Comunidad",
+      "pie": "Participantes y entrega de premios del concurso de decoración navideña Luce Jalón en la Plaza Everest ✨🎄 #LuceJalón"
+    },
+    {
+      "id": 6,
+      "tipo": "video",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "miniatura": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+      "titulo": "Carnaval Vecinal en la Plaza Everest",
+      "fecha": "16/02/2026",
+      "likes": 127,
+      "categoria": "Fiestas",
+      "pie": "Vídeo resumen del desfile de disfraces, música y animación infantil durante el Carnaval de Pinar de Jalón 🎭🎶 #CarnavalPinarDeJalón"
+    },
+    {
+      "id": 7,
+      "tipo": "imagen",
+      "url": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=1200&q=80",
+      "miniatura": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=700&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=700&q=80",
+      "titulo": "Mañana de ciclismo y pumptrack en la zona deportiva",
+      "fecha": "10/05/2026",
+      "likes": 92,
+      "categoria": "Deportes",
+      "pie": "Jóvenes y familias disfrutando de la pista multideporte, calistenia y pumptrack junto al Canal del Duero 🚲🏀 #DeporteEnElBarrio"
+    },
+    {
+      "id": 8,
+      "tipo": "imagen",
+      "url": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=1200&q=80",
+      "miniatura": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=700&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=700&q=80",
+      "titulo": "Noche de Jalonween y decoración vecinal",
+      "fecha": "31/10/2025",
+      "likes": 138,
+      "categoria": "Fiestas",
+      "pie": "Ambiente terrorífico y divertido durante la celebración de Jalonween en las comunidades y el parque del barrio 🎃👻 #Jalonween"
+    },
+    {
+      "id": 9,
+      "tipo": "imagen",
+      "url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80",
+      "miniatura": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=700&q=80",
+      "miniaturaFallback": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=700&q=80",
+      "titulo": "Atardecer entre los pinos de la calle Aneto",
+      "fecha": "04/09/2026",
+      "likes": 131,
+      "categoria": "Naturaleza",
+      "pie": "Puesta de sol dorada entre las copas de los pinos piñoneros que rodean Pinar de Jalón 🌅🌲 #NaturalezaValladolid"
+    }
+  ]
+}
