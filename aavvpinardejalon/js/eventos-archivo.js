@@ -1,12 +1,8 @@
-/**
- * AAVV Pinar de Jalón (Valladolid)
- * Controlador de la Agenda Completa y Archivo de Eventos (eventos.html)
- * Incluye: Fetch JSON, pestañas Próximos/Celebrados/Todos, filtro por categorías, búsqueda en vivo y paginación de 6 en 6
- */
+// Agenda y archivo de eventos (eventos.html)
 
 const EVENTS_PER_BATCH = 6;
 
-// Datos de respaldo automático por si se abre eventos.html directamente vía protocolo file://
+// Respaldo local por si se abre directamente desde disco (file://)
 const FALLBACK_EVENTOS = [
     {
         id: 2,
@@ -153,9 +149,6 @@ let activeStatus = "all";       // "all" | "upcoming" | "past"
 let activeCategory = "all";     // "all" | "Deportes" | "Infantil" | "MedioAmbiente" | "Cultura" | "Fiestas"
 let searchQuery = "";
 
-/**
- * Escapa caracteres HTML para inyección segura
- */
 function escapeHtml(str = "") {
     return String(str)
         .replace(/&/g, "&amp;")
@@ -165,9 +158,6 @@ function escapeHtml(str = "") {
         .replace(/'/g, "&#039;");
 }
 
-/**
- * Normaliza texto eliminando tildes y pasando a minúsculas
- */
 function normalizeText(str = "") {
     return String(str)
         .normalize("NFD")
@@ -175,9 +165,7 @@ function normalizeText(str = "") {
         .toLowerCase();
 }
 
-/**
- * Convierte fecha "dd/mm/yyyy" a timestamp del final de ese día (23:59:59)
- */
+// Convierte "dd/mm/yyyy" a timestamp del final del día para comparar con la fecha actual
 function parseEventDateDMY(dateStr = "") {
     if (!dateStr || typeof dateStr !== "string") return 0;
     const parts = dateStr.split("/");
@@ -187,9 +175,6 @@ function parseEventDateDMY(dateStr = "") {
     return new Date(year, month - 1, day, 23, 59, 59, 999).getTime();
 }
 
-/**
- * Determina automáticamente si un evento ya ha pasado según su fecha (o esPasado)
- */
 function isEventPast(ev) {
     const ts = parseEventDateDMY(ev.fecha);
     if (ts > 0) {
@@ -198,11 +183,7 @@ function isEventPast(ev) {
     return Boolean(ev.esPasado);
 }
 
-/**
- * Ordena eventos:
- * 1º Los próximos a ocurrir (de fecha más cercana a más lejana)
- * 2º Los que ya han pasado (cronológicamente del más reciente al más antiguo)
- */
+// Próximos primero (más cercano arriba) y luego celebrados del más reciente al más antiguo
 function sortEventsChronologically(events = []) {
     const sorted = [...events].sort((a, b) => {
         const aPast = isEventPast(a);
@@ -221,7 +202,6 @@ function sortEventsChronologically(events = []) {
         return bTime - aTime;
     });
 
-    // Marcar el evento futuro más próximo como destacado
     let firstUpcomingMarked = false;
     return sorted.map(ev => {
         const past = isEventPast(ev);
@@ -235,9 +215,6 @@ function sortEventsChronologically(events = []) {
     });
 }
 
-/**
- * Construye el HTML de una tarjeta de evento diferenciando entre futuros y ya celebrados
- */
 function createEventCardHtml(ev) {
     const isPast = Boolean(ev.esPasado);
     const cardClass = isPast ? "social-event-card is-past-event" : "social-event-card";
@@ -315,9 +292,6 @@ function createEventCardHtml(ev) {
     `;
 }
 
-/**
- * Filtra los eventos combinando estado (Próximos/Celebrados/Todos), categoría y búsqueda en tiempo real
- */
 function applyEventFiltersAndReset() {
     const normQuery = normalizeText(searchQuery.trim());
     const normCat = normalizeText(activeCategory);
@@ -325,16 +299,13 @@ function applyEventFiltersAndReset() {
     filteredEvents = allEvents.filter(ev => {
         const isPast = Boolean(ev.esPasado);
 
-        // 1. Filtro por pestaña de estado
         if (activeStatus === "upcoming" && isPast) return false;
         if (activeStatus === "past" && !isPast) return false;
 
-        // 2. Filtro por categoría temática
         if (activeCategory !== "all" && normalizeText(ev.categoria || "") !== normCat) {
             return false;
         }
 
-        // 3. Filtro por texto en tiempo real
         if (!normQuery) return true;
 
         const searchable = normalizeText(
@@ -351,9 +322,6 @@ function applyEventFiltersAndReset() {
     updateResetBtnVisibility();
 }
 
-/**
- * Renderiza progresivamente de 6 en 6 eventos
- */
 function renderNextEventsBatch() {
     const container = document.getElementById("archive-events-container");
     const counterEl = document.getElementById("events-results-count");
@@ -387,18 +355,12 @@ function renderNextEventsBatch() {
     }
 }
 
-/**
- * Muestra u oculta el botón de limpiar filtros
- */
 function updateResetBtnVisibility() {
     const resetBtn = document.getElementById("reset-events-filters-btn");
     if (!resetBtn) return;
     resetBtn.hidden = activeStatus === "all" && activeCategory === "all" && searchQuery.trim() === "";
 }
 
-/**
- * Actualiza visualmente los botones de categoría
- */
 function setCategoryUI(category) {
     activeCategory = category;
     document.querySelectorAll("[data-category]").forEach(btn => {
@@ -408,9 +370,6 @@ function setCategoryUI(category) {
     });
 }
 
-/**
- * Actualiza visualmente las pestañas de estado
- */
 function setStatusTabUI(status) {
     activeStatus = status;
     document.querySelectorAll(".status-tab-btn").forEach(btn => {
@@ -420,9 +379,6 @@ function setStatusTabUI(status) {
     });
 }
 
-/**
- * Carga inicial desde data/eventos.json
- */
 async function initEventsArchive() {
     try {
         const res = await fetch("data/eventos.json");
@@ -434,16 +390,11 @@ async function initEventsArchive() {
         allEvents = FALLBACK_EVENTOS;
     }
 
-    // Ordenar: 1º próximos (más cercano primero) y 2º pasados (del más reciente al más antiguo)
     allEvents = sortEventsChronologically(allEvents);
     applyEventFiltersAndReset();
 }
 
-/**
- * Enlaza todos los eventos de interfaz
- */
 function bindEventsUI() {
-    // 1. Menú móvil responsive
     const menuBtn = document.querySelector(".mobile-menu-toggle");
     const mainNav = document.querySelector(".main-nav");
     if (menuBtn && mainNav) {
@@ -453,7 +404,6 @@ function bindEventsUI() {
         });
     }
 
-    // 2. Buscador en tiempo real
     const searchInput = document.getElementById("events-search-input");
     if (searchInput) {
         searchInput.addEventListener("input", (e) => {
@@ -462,7 +412,6 @@ function bindEventsUI() {
         });
     }
 
-    // 3. Pestañas de estado (Todos / Próximos / Celebrados)
     document.querySelectorAll(".status-tab-btn").forEach(tab => {
         tab.addEventListener("click", () => {
             setStatusTabUI(tab.dataset.status || "all");
@@ -470,7 +419,6 @@ function bindEventsUI() {
         });
     });
 
-    // 4. Filtros superiores por categoría
     document.querySelectorAll(".tag-filter[data-category]").forEach(btn => {
         btn.addEventListener("click", () => {
             setCategoryUI(btn.dataset.category || "all");
@@ -478,7 +426,6 @@ function bindEventsUI() {
         });
     });
 
-    // 5. Clic en chip de categoría dentro de una tarjeta
     const container = document.getElementById("archive-events-container");
     if (container) {
         container.addEventListener("click", (e) => {
@@ -490,7 +437,6 @@ function bindEventsUI() {
         });
     }
 
-    // 6. Botón limpiar filtros
     const resetBtn = document.getElementById("reset-events-filters-btn");
     if (resetBtn) {
         resetBtn.addEventListener("click", () => {
@@ -502,7 +448,6 @@ function bindEventsUI() {
         });
     }
 
-    // 7. Botón Cargar más eventos
     const loadMoreBtn = document.getElementById("load-more-events-btn");
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener("click", () => {

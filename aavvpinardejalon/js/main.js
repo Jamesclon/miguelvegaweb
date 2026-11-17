@@ -1,9 +1,6 @@
-/**
- * AAVV Pinar de Jalón (Valladolid)
- * Lógica principal: Carga dinámica de JSON (Stories, Eventos, Muro Vecinal) e interacciones UI
- */
+// AAVV Pinar de Jalón — Scripts principales de portada
 
-// Datos de respaldo automático por si se abre index.html con doble clic (protocolo file://)
+// Respaldo local por si se abre index.html directamente desde disco (file://)
 const FALLBACK_DATA = {
     historias: [
         {
@@ -237,9 +234,6 @@ const FALLBACK_DATA = {
     ]
 };
 
-/**
- * Escapa caracteres HTML para prevenir problemas al inyectar atributos o textos
- */
 function escapeHtml(str = "") {
     return String(str)
         .replace(/&/g, "&amp;")
@@ -249,9 +243,7 @@ function escapeHtml(str = "") {
         .replace(/'/g, "&#039;");
 }
 
-/**
- * Función auxiliar para obtener datos JSON con soporte tanto para Array directo como para { items: [...] } (Decap CMS)
- */
+// Soporta tanto array directo como { items: [...] } (formato de Decap CMS)
 async function fetchCollection(url, fallbackKey) {
     try {
         const response = await fetch(url);
@@ -264,9 +256,6 @@ async function fetchCollection(url, fallbackKey) {
     }
 }
 
-/**
- * 1. Renderizado dinámico de la barra de "Stories" (#stories-container)
- */
 async function loadStories() {
     const container = document.getElementById("stories-container");
     if (!container) return;
@@ -292,9 +281,7 @@ async function loadStories() {
     }).join("");
 }
 
-/**
- * Convierte fecha "dd/mm/yyyy" a timestamp del final de ese día (23:59:59)
- */
+// Convierte "dd/mm/yyyy" a timestamp del final del día para comparar con la fecha actual
 function parseEventDateDMY(dateStr = "") {
     if (!dateStr || typeof dateStr !== "string") return 0;
     const parts = dateStr.split("/");
@@ -304,9 +291,6 @@ function parseEventDateDMY(dateStr = "") {
     return new Date(year, month - 1, day, 23, 59, 59, 999).getTime();
 }
 
-/**
- * Determina si un evento ya ha pasado comparando su fecha con hoy (o usando el booleano esPasado)
- */
 function isEventPast(ev) {
     const ts = parseEventDateDMY(ev.fecha);
     if (ts > 0) {
@@ -315,11 +299,7 @@ function isEventPast(ev) {
     return Boolean(ev.esPasado);
 }
 
-/**
- * Ordena eventos:
- * 1º Los próximos a ocurrir (de fecha más cercana a más lejana)
- * 2º Los ya celebrados (en orden cronológico inverso: del más reciente al más antiguo)
- */
+// Próximos primero (más cercano arriba) y luego pasados del más reciente al más antiguo
 function sortEventsChronologically(events = []) {
     return [...events].sort((a, b) => {
         const aPast = isEventPast(a);
@@ -332,24 +312,18 @@ function sortEventsChronologically(events = []) {
         const aTime = parseEventDateDMY(a.fecha);
         const bTime = parseEventDateDMY(b.fecha);
 
-        // Si ambos son futuros: primero el más próximo a ocurrir (ascendente)
         if (!aPast) {
             return aTime - bTime;
         }
-        // Si ambos ya han pasado: del más reciente al más antiguo (descendente)
         return bTime - aTime;
     });
 }
 
-/**
- * 2. Renderizado dinámico de la Agenda de Eventos (#events-container)
- */
 async function loadEvents() {
     const container = document.getElementById("events-container");
     if (!container) return;
 
     const todosLosEventos = await fetchCollection("data/eventos.json", "eventos");
-    // Ordenamos: primero los próximos más cercanos, y después los pasados cronológicamente
     const eventosOrdenados = sortEventsChronologically(todosLosEventos);
     const eventos = eventosOrdenados.slice(0, 3);
 
@@ -433,15 +407,11 @@ async function loadEvents() {
     }).join("");
 }
 
-/**
- * 3. Renderizado dinámico del Muro Comunitario (#feed-container)
- */
 async function loadFeed() {
     const container = document.getElementById("feed-container");
     if (!container) return;
 
     const todasLasNoticias = await fetchCollection("data/noticias.json", "noticias");
-    // En portada mostramos las 3 noticias más recientes
     const noticias = todasLasNoticias.slice(0, 3);
 
     container.innerHTML = noticias.map(post => {
@@ -492,15 +462,11 @@ async function loadFeed() {
     }).join("");
 }
 
-/**
- * 3.5. Renderizado dinámico del Mosaico Multimedia de Portada (#home-gallery-container)
- */
 async function loadHomeGallery() {
     const container = document.getElementById("home-gallery-container");
     if (!container) return;
 
     const todosLosItems = await fetchCollection("data/galeria.json", "galeria");
-    // En portada mostramos las 6 publicaciones más recientes
     const recientes = todosLosItems.slice(0, 6);
 
     container.innerHTML = recientes.map(item => {
@@ -533,9 +499,6 @@ async function loadHomeGallery() {
     }).join("");
 }
 
-/**
- * 4. Filtrado de publicaciones por etiqueta en el Muro Comunitario
- */
 function filterPosts(tag) {
     const filterBtns = document.querySelectorAll(".tag-filter");
     const posts = document.querySelectorAll("#feed-container .social-post-card");
@@ -551,11 +514,7 @@ function filterPosts(tag) {
     });
 }
 
-/**
- * 5. Inicialización de eventos e interacciones (Delegación de eventos)
- */
 function initInteractions() {
-    // Menú móvil desplegable
     const menuBtn = document.querySelector(".mobile-menu-toggle");
     const mainNav = document.querySelector(".main-nav");
     const navLinks = document.querySelectorAll(".nav-link");
@@ -574,7 +533,6 @@ function initInteractions() {
         });
     }
 
-    // Delegación para abrir el modal de "Stories" (#stories-container)
     const storiesContainer = document.getElementById("stories-container");
     const storyModal = document.getElementById("story-modal");
     const storyTitle = document.getElementById("story-modal-title");
@@ -604,11 +562,9 @@ function initInteractions() {
         });
     }
 
-    // Delegación en el Muro Comunitario (#feed-container): Likes y Hashtags
     const feedContainer = document.getElementById("feed-container");
     if (feedContainer) {
         feedContainer.addEventListener("click", (e) => {
-            // Toggle botón de Me gusta
             const likeBtn = e.target.closest(".like-btn");
             if (likeBtn) {
                 const countEl = likeBtn.querySelector(".like-count");
@@ -618,7 +574,6 @@ function initInteractions() {
                 return;
             }
 
-            // Clic en hashtag dentro de una tarjeta
             const hashtagBtn = e.target.closest(".hashtag");
             if (hashtagBtn && hashtagBtn.dataset.tag) {
                 filterPosts(hashtagBtn.dataset.tag);
@@ -626,12 +581,10 @@ function initInteractions() {
         });
     }
 
-    // Botones superiores de filtro del Muro Comunitario
     document.querySelectorAll(".tag-filter").forEach(btn => {
         btn.addEventListener("click", () => filterPosts(btn.dataset.filter));
     });
 
-    // Envío del formulario del Buzón Vecinal
     const buzonForm = document.getElementById("buzon-form");
     const feedback = document.getElementById("form-feedback");
     if (buzonForm && feedback) {
@@ -645,7 +598,6 @@ function initInteractions() {
     }
 }
 
-// Inicialización al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
     initInteractions();
     Promise.all([

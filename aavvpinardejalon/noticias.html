@@ -6,23 +6,18 @@
     <meta name="description" content="Histórico de noticias, comunicados oficiales, actas y avisos de la Asociación Vecinal Pinar de Jalón (Valladolid).">
     <title>Histórico de Noticias y Comunicados · AAVV Pinar de Jalón</title>
 
-    <!-- Favicon con respaldo automático -->
     <link rel="icon" href="img/logo.avif" type="image/avif">
     <link rel="alternate icon" href="img/logo.png" type="image/png">
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Estilos principales -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- =====================================================================
-         1. BARRA DE AVISOS SUPERIOR & HEADER STICKY
-         ===================================================================== -->
+    <!-- Aviso superior -->
     <div class="top-notice-bar" role="region" aria-label="Aviso destacado del barrio">
         <div class="container top-notice-inner">
             <p class="notice-text">
@@ -79,9 +74,7 @@
     </header>
 
     <main>
-        <!-- =====================================================================
-             2. HERO DE ARCHIVO CON BUSCADOR Y FILTROS
-             ===================================================================== -->
+        <!-- Cabecera y filtros -->
         <section class="archive-hero-section">
             <div class="container">
                 <div class="archive-hero-card">
@@ -95,7 +88,6 @@
                         Consulta todas las gestiones con el Ayuntamiento, actas de asambleas, seguimiento de reivindicaciones y crónicas de actividades de Pinar de Jalón.
                     </p>
 
-                    <!-- Barra de búsqueda instantánea + Píldoras de filtrado -->
                     <div class="archive-controls">
                         <div class="search-input-wrap">
                             <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -122,12 +114,9 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             3. GRID DE PUBLICACIONES Y PAGINACIÓN PROGRESIVA
-             ===================================================================== -->
+        <!-- Listado de noticias -->
         <section class="section archive-feed-section">
             <div class="container">
-                <!-- Contador de resultados -->
                 <div class="archive-status-bar">
                     <p id="archive-results-count" class="results-counter" aria-live="polite">
                         Cargando publicaciones...
@@ -137,7 +126,6 @@
                     </button>
                 </div>
 
-                <!-- Contenedor dinámico de tarjetas -->
                 <div id="archive-news-container" class="social-feed-grid" aria-live="polite">
                     <div class="card-skeleton" aria-hidden="true"></div>
                     <div class="card-skeleton" aria-hidden="true"></div>
@@ -147,7 +135,6 @@
                     <div class="card-skeleton" aria-hidden="true"></div>
                 </div>
 
-                <!-- Botón inferior de paginación progresiva -->
                 <div class="load-more-wrap">
                     <button type="button" id="load-more-btn" class="btn btn-outline-dark load-more-btn" hidden>
                         Cargar más noticias históricas &darr;
@@ -157,9 +144,7 @@
         </section>
     </main>
 
-    <!-- =====================================================================
-         4. FOOTER INSTITUCIONAL COMPLETO
-         ===================================================================== -->
+    <!-- Pie de página -->
     <footer id="contacto" class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -229,9 +214,7 @@
         </div>
     </footer>
 
-    <!-- =====================================================================
-         VISOR LIGHTBOX PARA IMÁGENES DE PUBLICACIONES
-         ===================================================================== -->
+    <!-- Lightbox de imagen -->
     <div class="lightbox-backdrop" id="image-lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
         <div class="lightbox-dialog">
             <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
@@ -240,7 +223,6 @@
         </div>
     </div>
 
-    <!-- Script controlador del archivo de noticias -->
     <script src="js/noticias-archivo.js" defer></script>
 </body>
 </html>

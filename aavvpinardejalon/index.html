@@ -6,26 +6,20 @@
     <meta name="description" content="Asociación Vecinal Pinar de Jalón (Valladolid). Comunidad, agenda de eventos, muro vecinal, estado de reivindicaciones y buzón directo.">
     <title>AAVV Pinar de Jalón · Nuestro barrio, nuestra comunidad (Valladolid)</title>
 
-    <!-- Favicon con respaldo automático -->
     <link rel="icon" href="img/logo.avif" type="image/avif">
     <link rel="alternate icon" href="img/logo.png" type="image/png">
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Estilos principales -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Netlify Identity Widget para acceso y confirmación de usuarios del CMS (/admin) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
-    <!-- =====================================================================
-         1. BARRA DE AVISOS SUPERIOR & HEADER STICKY
-         ===================================================================== -->
+    <!-- Aviso superior -->
     <div class="top-notice-bar" role="region" aria-label="Aviso destacado del barrio">
         <div class="container top-notice-inner">
             <p class="notice-text">
@@ -82,13 +76,10 @@
     </header>
 
     <main>
-        <!-- =====================================================================
-             2. BARRA DE "STORIES" DEL BARRIO (RENDERIZADO DINÁMICO DESDE data/historias.json)
-             ===================================================================== -->
+        <!-- Historias destacadas -->
         <section id="historias" class="stories-section" aria-label="Historias destacadas del barrio">
             <div class="container">
                 <div id="stories-container" class="stories-bar" aria-live="polite">
-                    <!-- Placeholders discretos para evitar saltos visuales (CLS) -->
                     <div class="story-skeleton" aria-hidden="true"></div>
                     <div class="story-skeleton" aria-hidden="true"></div>
                     <div class="story-skeleton" aria-hidden="true"></div>
@@ -98,14 +89,11 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             3. HERO BENTO GRID (CUADRÍCULA MODULAR ASIMÉTRICA)
-             ===================================================================== -->
+        <!-- Portada -->
         <section id="inicio" class="bento-hero-section">
             <div class="container">
                 <div class="bento-grid">
 
-                    <!-- MÓDULO PRINCIPAL (Columna ancha, 2 filas) -->
                     <article class="bento-card bento-main">
                         <img src="img/hero-pinar.jpg"
                              onerror="this.onerror=null;this.src='img/inicio.avif';"
@@ -129,7 +117,7 @@
                         </div>
                     </article>
 
-                    <!-- MÓDULO SOCIAL (Contador de familias asociadas) -->
+                    <!-- Contador de familias asociadas -->
                     <article class="bento-card bento-social">
                         <div class="bento-social-top">
                             <span class="bento-tag-green">Comunidad en crecimiento</span>
@@ -155,7 +143,7 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe234P_kXXnZtlFomOUHSX8b2E5OdDujuTPMG-trZrgdKHU5w/viewform" target="_blank" rel="noopener noreferrer" class="bento-inline-link">Hazte socio en 1 minuto &rarr;</a>
                     </article>
 
-                    <!-- MÓDULO ESTADO DE REIVINDICACIONES -->
+                    <!-- Estado de reivindicaciones -->
                     <article class="bento-card bento-claims">
                         <div class="claims-header">
                             <div>
@@ -202,9 +190,7 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             4. AGENDA DE EVENTOS (RENDERIZADO DINÁMICO DESDE data/eventos.json)
-             ===================================================================== -->
+        <!-- Agenda de eventos -->
         <section id="eventos" class="section events-section">
             <div class="container">
                 <div class="section-header">
@@ -217,7 +203,6 @@
                 </div>
 
                 <div id="events-container" class="events-grid" aria-live="polite">
-                    <!-- Placeholders discretos de carga -->
                     <div class="card-skeleton" aria-hidden="true"></div>
                     <div class="card-skeleton" aria-hidden="true"></div>
                     <div class="card-skeleton" aria-hidden="true"></div>
@@ -229,9 +214,7 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             5. MURO COMUNITARIO / FEED DE NOVEDADES (RENDERIZADO DINÁMICO DESDE data/noticias.json)
-             ===================================================================== -->
+        <!-- Muro comunitario -->
         <section id="feed" class="section feed-section">
             <div class="container">
                 <div class="section-header">
@@ -250,7 +233,6 @@
                 </div>
 
                 <div id="feed-container" class="social-feed-grid" aria-live="polite">
-                    <!-- Placeholders discretos de carga -->
                     <div class="card-skeleton" aria-hidden="true"></div>
                     <div class="card-skeleton" aria-hidden="true"></div>
                     <div class="card-skeleton" aria-hidden="true"></div>
@@ -262,9 +244,7 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             6. MOSAICO FOTOGRÁFICO (ESTILO FEED DE INSTAGRAM)
-             ===================================================================== -->
+        <!-- Galería -->
         <section class="section insta-gallery-section" aria-label="Galería fotográfica del barrio">
             <div class="container">
                 <div class="section-header">
@@ -279,7 +259,6 @@
                 </div>
 
                 <div id="home-gallery-container" class="insta-mosaic-grid" aria-live="polite">
-                    <!-- Placeholders discretos de carga -->
                     <div class="tile-skeleton" aria-hidden="true"></div>
                     <div class="tile-skeleton" aria-hidden="true"></div>
                     <div class="tile-skeleton" aria-hidden="true"></div>
@@ -294,13 +273,10 @@
             </div>
         </section>
 
-        <!-- =====================================================================
-             7. BUZÓN VECINAL DIRECTO (ESTILO CHAT / MENSAJE RÁPIDO)
-             ===================================================================== -->
+        <!-- Buzón vecinal -->
         <section id="participa" class="section buzon-section">
             <div class="container">
                 <div class="buzon-bento-wrapper">
-                    <!-- Columna Informativa -->
                     <div class="buzon-info-col">
                         <span class="section-pill pill-light">📬 Participación directa</span>
                         <h2 class="buzon-title">Tu voz construye Pinar de Jalón</h2>
@@ -326,7 +302,7 @@
                         </div>
                     </div>
 
-                    <!-- Columna Chat / Formulario Rápido -->
+                    <!-- Formulario del buzón -->
                     <div class="buzon-chat-card">
                         <div class="chat-card-header">
                             <div class="chat-header-user">
@@ -390,9 +366,7 @@
         </section>
     </main>
 
-    <!-- =====================================================================
-         8. FOOTER INSTITUCIONAL COMPLETO
-         ===================================================================== -->
+    <!-- Pie de página -->
     <footer id="contacto" class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -462,9 +436,7 @@
         </div>
     </footer>
 
-    <!-- =====================================================================
-         VISOR MODAL PARA LAS "STORIES" DEL BARRIO
-         ===================================================================== -->
+    <!-- Modal de historias -->
     <div class="story-modal-backdrop" id="story-modal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="story-modal-card">
             <div class="story-progress-bar"><div class="story-progress-fill" id="story-progress"></div></div>
@@ -483,9 +455,6 @@
         </div>
     </div>
 
-    <!-- =====================================================================
-         SCRIPT PRINCIPAL MODULAR Y REDIRECCIÓN NETLIFY IDENTITY
-         ===================================================================== -->
     <script>
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", function(user) {

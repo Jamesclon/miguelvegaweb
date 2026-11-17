@@ -1,29 +1,22 @@
-/* ==========================================================================
-   AAVV PINAR DE JALÓN (VALLADOLID)
-   Diseño UI/UX: Bento Grid + Social Community Feed
-   ========================================================================== */
+/* AAVV Pinar de Jalón (Valladolid) — Estilos principales */
 
 :root {
-    /* Paleta Institucional Pinar de Jalón */
-    --pine-primary: #1B4D3E;          /* Verde bosque oscuro institucional */
-    --pine-secondary: #2D6A4F;        /* Verde secundario */
-    --pine-interactive: #40916C;      /* Tonalidad de interacción */
-    --pine-soft: #E8F3EE;             /* Verde pastel para etiquetas */
+    --pine-primary: #1B4D3E;
+    --pine-secondary: #2D6A4F;
+    --pine-interactive: #40916C;
+    --pine-soft: #E8F3EE;
 
-    /* Contraste y Llamadas a la Acción */
-    --accent-warm: #E76F51;           /* Naranja mostaza cálido */
+    --accent-warm: #E76F51;
     --accent-warm-hover: #D45B3E;
     --accent-gold: #F4A261;
 
-    /* Superficies y Fondos */
-    --bg-page: #F4F6F8;               /* Fondo grisáceo limpio */
-    --bg-card: #FFFFFF;               /* Tarjetas blancas */
+    --bg-page: #F4F6F8;
+    --bg-card: #FFFFFF;
     --text-dark: #14241F;
     --text-body: #334155;
     --text-muted: #64748B;
     --border-subtle: rgba(27, 77, 62, 0.08);
 
-    /* Sistema de Diseño Táctil / Bento */
     --radius-card: 18px;
     --radius-lg: 24px;
     --radius-pill: 9999px;
@@ -34,9 +27,7 @@
     --container-max: 1220px;
 }
 
-/* ==========================================================================
-   RESET Y BASE
-   ========================================================================== */
+/* Base */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -88,9 +79,7 @@ button, input, textarea {
     padding: 3.75rem 0;
 }
 
-/* ==========================================================================
-   BOTONES Y PÍLDORAS DE INTERACCIÓN
-   ========================================================================== */
+/* Botones */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -161,9 +150,7 @@ button, input, textarea {
     width: 100%;
 }
 
-/* ==========================================================================
-   1. BARRA DE AVISOS & HEADER STICKY
-   ========================================================================== */
+/* Aviso superior y cabecera */
 .top-notice-bar {
     background-color: var(--pine-primary);
     color: #FFFFFF;
@@ -302,9 +289,7 @@ button, input, textarea {
     border-radius: 2px;
 }
 
-/* ==========================================================================
-   2. BARRA DE "STORIES" DEL BARRIO
-   ========================================================================== */
+/* Historias */
 .stories-section {
     padding: 1.35rem 0 0.5rem;
 }
@@ -393,7 +378,7 @@ button, input, textarea {
     white-space: nowrap;
 }
 
-/* Placeholders discretos de carga para prevenir CLS */
+/* Skeletons de carga */
 @keyframes pulseSkeleton {
     0%, 100% { opacity: 0.55; }
     50% { opacity: 0.9; }
@@ -415,9 +400,7 @@ button, input, textarea {
     animation: pulseSkeleton 1.5s ease-in-out infinite;
 }
 
-/* ==========================================================================
-   3. HERO BENTO GRID (CUADRÍCULA MODULAR ASIMÉTRICA)
-   ========================================================================== */
+/* Portada Bento */
 .bento-hero-section {
     padding: 1.25rem 0 2.5rem;
 }
@@ -439,7 +422,6 @@ button, input, textarea {
     transition: var(--transition);
 }
 
-/* Módulo Principal (Columna izquierda, ocupa las 2 filas) */
 .bento-main {
     grid-row: span 2;
     min-height: 460px;
@@ -525,7 +507,6 @@ button, input, textarea {
     gap: 0.85rem;
 }
 
-/* Módulo Social (Contador 428 familias) */
 .bento-social {
     padding: 1.65rem 1.8rem;
     display: flex;
@@ -629,7 +610,6 @@ button, input, textarea {
     color: var(--pine-primary);
 }
 
-/* Módulo Estado de Reivindicaciones */
 .bento-claims {
     padding: 1.65rem 1.8rem;
     display: flex;
@@ -704,9 +684,7 @@ button, input, textarea {
     background: linear-gradient(90deg, var(--accent-warm), var(--accent-gold));
 }
 
-/* ==========================================================================
-   CABECERAS DE SECCIÓN COMUNES
-   ========================================================================== */
+/* Cabeceras de sección */
 .section-header {
     display: flex;
     align-items: flex-end;
@@ -746,9 +724,7 @@ button, input, textarea {
     margin-top: 0.25rem;
 }
 
-/* ==========================================================================
-   4. AGENDA DE EVENTOS (ESTILO EVENTO SOCIAL)
-   ========================================================================== */
+/* Agenda de eventos */
 .events-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -907,9 +883,7 @@ button, input, textarea {
     color: #FFFFFF;
 }
 
-/* ==========================================================================
-   5. MURO COMUNITARIO / FEED DE NOVEDADES (ESTILO SOCIAL POST)
-   ========================================================================== */
+/* Muro de noticias */
 .feed-filter-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1082,9 +1056,7 @@ button, input, textarea {
     color: var(--accent-warm);
 }
 
-/* ==========================================================================
-   6. MOSAICO FOTOGRÁFICO (ESTILO FEED DE INSTAGRAM)
-   ========================================================================== */
+/* Mosaico de galería */
 .insta-mosaic-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -1142,9 +1114,7 @@ button, input, textarea {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   7. BUZÓN VECINAL DIRECTO (ESTILO CHAT / MENSAJE RÁPIDO)
-   ========================================================================== */
+/* Buzón vecinal */
 .buzon-bento-wrapper {
     background: linear-gradient(135deg, var(--pine-primary) 0%, #13382D 100%);
     border-radius: var(--radius-lg);
@@ -1202,7 +1172,6 @@ button, input, textarea {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Tarjeta Chat Derecha */
 .buzon-chat-card {
     background-color: var(--bg-card);
     color: var(--text-dark);
@@ -1328,9 +1297,7 @@ button, input, textarea {
     text-align: center;
 }
 
-/* ==========================================================================
-   8. FOOTER INSTITUCIONAL
-   ========================================================================== */
+/* Pie de página */
 .site-footer {
     background-color: var(--pine-primary);
     color: rgba(255, 255, 255, 0.85);
@@ -1438,9 +1405,7 @@ button, input, textarea {
     text-underline-offset: 3px;
 }
 
-/* ==========================================================================
-   MODAL INTERACTIVO DE "STORIES"
-   ========================================================================== */
+/* Modal de historias */
 .story-modal-backdrop {
     position: fixed;
     inset: 0;
@@ -1528,9 +1493,7 @@ button, input, textarea {
     margin-bottom: 1.75rem;
 }
 
-/* ==========================================================================
-   PÁGINA DE ARCHIVO HISTÓRICO DE NOTICIAS (noticias.html)
-   ========================================================================== */
+/* Páginas de archivo (noticias y eventos) */
 .section-bottom-cta {
     margin-top: 2.25rem;
     display: flex;
@@ -1634,7 +1597,7 @@ button, input, textarea {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilos para tarjetas de eventos pasados (esPasado: true) */
+/* Eventos ya celebrados */
 .social-event-card.is-past-event {
     background-color: #FAFBFB;
     border-color: rgba(100, 116, 139, 0.14);
@@ -1862,7 +1825,7 @@ button, input, textarea {
     font-size: 0.92rem;
 }
 
-/* Lightbox Modal para ampliar imágenes de noticias */
+/* Lightbox de noticias */
 .lightbox-backdrop {
     position: fixed;
     inset: 0;
@@ -1917,9 +1880,7 @@ button, input, textarea {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   PÁGINA DE GALERÍA MULTIMEDIA (galeria.html) & INDICADORES DE VÍDEO
-   ========================================================================== */
+/* Galería multimedia e indicadores de vídeo */
 .tile-skeleton {
     aspect-ratio: 1 / 1;
     border-radius: 16px;
@@ -2092,7 +2053,7 @@ button, input, textarea {
     line-height: 1.5;
 }
 
-/* Lightbox Multimedia Avanzado (Imágenes + Vídeos MP4 + Iframes) */
+/* Lightbox de galería (fotos y vídeos) */
 .lightbox-content {
     position: relative;
     width: 100%;
@@ -2248,9 +2209,7 @@ button, input, textarea {
     background-color: var(--accent-warm);
 }
 
-/* ==========================================================================
-   MEDIA QUERIES (RESPONSIVE MÓVIL Y TABLET)
-   ========================================================================== */
+/* Responsive */
 @media (max-width: 1024px) {
     .bento-grid {
         grid-template-columns: 1fr;

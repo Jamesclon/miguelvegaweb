@@ -1,12 +1,8 @@
-/**
- * AAVV Pinar de Jalón (Valladolid)
- * Controlador del Archivo Histórico de Noticias (noticias.html)
- * Incluye: Fetch JSON, búsqueda instantánea, filtro por etiquetas, paginación de 6 en 6, likes y lightbox
- */
+// Archivo histórico de noticias (noticias.html)
 
 const ITEMS_PER_BATCH = 6;
 
-// Respaldo automático por si se abre noticias.html directamente vía file://
+// Respaldo local por si se abre directamente desde disco (file://)
 const FALLBACK_NOTICIAS = [
     {
         id: "opinion-v-fiestas-barrio",
@@ -147,9 +143,6 @@ let activeTag = "all";
 let searchQuery = "";
 const likedPosts = new Set();
 
-/**
- * Escapa texto para inyección segura en HTML
- */
 function escapeHtml(str = "") {
     return String(str)
         .replace(/&/g, "&amp;")
@@ -159,9 +152,6 @@ function escapeHtml(str = "") {
         .replace(/'/g, "&#039;");
 }
 
-/**
- * Normaliza texto eliminando tildes y pasando a minúsculas para búsquedas insensibles a acentos
- */
 function normalizeText(str = "") {
     return String(str)
         .normalize("NFD")
@@ -169,9 +159,6 @@ function normalizeText(str = "") {
         .toLowerCase();
 }
 
-/**
- * Genera el HTML de una tarjeta de noticia manteniendo la estética Social Post
- */
 function createNewsCardHtml(post) {
     const etiquetas = Array.isArray(post.etiquetas) ? post.etiquetas : [];
     const resumenTexto = post.resumen || post.texto || "";
@@ -239,9 +226,6 @@ function createNewsCardHtml(post) {
     `;
 }
 
-/**
- * Filtra el array global según búsqueda de texto y etiqueta seleccionada
- */
 function applyFiltersAndReset() {
     const normQuery = normalizeText(searchQuery.trim());
     const normTag = normalizeText(activeTag);
@@ -309,24 +293,17 @@ function renderNextBatch() {
         counterEl.textContent = `Mostrando ${renderedCount} de ${filteredNews.length} publicaciones`;
     }
 
-    // Mostrar u ocultar botón "Cargar más noticias históricas ↓"
     if (loadMoreBtn) {
         loadMoreBtn.hidden = renderedCount >= filteredNews.length;
     }
 }
 
-/**
- * Muestra u oculta el botón de limpiar filtros
- */
 function updateResetButtonVisibility() {
     const resetBtn = document.getElementById("reset-filters-btn");
     if (!resetBtn) return;
     resetBtn.hidden = activeTag === "all" && searchQuery.trim() === "";
 }
 
-/**
- * Activa visualmente el botón de etiqueta seleccionado
- */
 function setActiveTagUI(tag) {
     activeTag = tag;
     const filterBtns = document.querySelectorAll(".tag-filter");
@@ -338,15 +315,11 @@ function setActiveTagUI(tag) {
         if (isMatch) matchedButton = true;
     });
 
-    // Si el usuario pulsó un hashtag secundario que no está en la barra superior, desmarcamos "Todas"
     if (!matchedButton && tag !== "all") {
         filterBtns.forEach(btn => btn.classList.remove("active"));
     }
 }
 
-/**
- * Carga inicial de data/noticias.json
- */
 async function initArchive() {
     try {
         const res = await fetch("data/noticias.json");
@@ -360,7 +333,7 @@ async function initArchive() {
 
     applyFiltersAndReset();
 
-    // Si la URL incluye un hash (#id-noticia), desplazar suavemente a la tarjeta
+    // Si hay hash en la URL (#id-noticia), cargamos lotes hasta mostrarla y hacemos scroll
     if (window.location.hash) {
         const targetId = window.location.hash.slice(1);
         const targetIndex = filteredNews.findIndex(n => n.id === targetId);
@@ -377,11 +350,7 @@ async function initArchive() {
     }
 }
 
-/**
- * Eventos de interfaz (búsqueda, filtros, paginación, likes, lightbox y menú móvil)
- */
 function bindArchiveEvents() {
-    // 1. Menú móvil responsive
     const menuBtn = document.querySelector(".mobile-menu-toggle");
     const mainNav = document.querySelector(".main-nav");
     if (menuBtn && mainNav) {
@@ -391,7 +360,6 @@ function bindArchiveEvents() {
         });
     }
 
-    // 2. Búsqueda instantánea en tiempo real
     const searchInput = document.getElementById("news-search-input");
     if (searchInput) {
         searchInput.addEventListener("input", (e) => {
@@ -400,7 +368,6 @@ function bindArchiveEvents() {
         });
     }
 
-    // 3. Píldoras de filtro por categoría
     document.querySelectorAll(".tag-filter").forEach(btn => {
         btn.addEventListener("click", () => {
             setActiveTagUI(btn.dataset.filter || "all");
@@ -408,7 +375,6 @@ function bindArchiveEvents() {
         });
     });
 
-    // 4. Botón limpiar filtros
     const resetBtn = document.getElementById("reset-filters-btn");
     if (resetBtn) {
         resetBtn.addEventListener("click", () => {
@@ -419,7 +385,6 @@ function bindArchiveEvents() {
         });
     }
 
-    // 5. Botón Cargar más noticias históricas
     const loadMoreBtn = document.getElementById("load-more-btn");
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener("click", () => {
@@ -427,7 +392,6 @@ function bindArchiveEvents() {
         });
     }
 
-    // 6. Delegación en el contenedor de noticias: Likes, Hashtags y Lightbox de imagen
     const container = document.getElementById("archive-news-container");
     const lightbox = document.getElementById("image-lightbox-modal");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -435,7 +399,6 @@ function bindArchiveEvents() {
 
     if (container) {
         container.addEventListener("click", (e) => {
-            // A) Botón de Like
             const likeBtn = e.target.closest(".like-btn");
             if (likeBtn) {
                 const card = likeBtn.closest("[data-post-id]");
@@ -452,7 +415,6 @@ function bindArchiveEvents() {
                 return;
             }
 
-            // B) Hashtag dentro de tarjeta
             const hashtagBtn = e.target.closest(".hashtag");
             if (hashtagBtn && hashtagBtn.dataset.tag) {
                 setActiveTagUI(hashtagBtn.dataset.tag);
@@ -460,7 +422,6 @@ function bindArchiveEvents() {
                 return;
             }
 
-            // C) Abrir imagen en Lightbox
             const mediaBtn = e.target.closest(".post-media-btn");
             if (mediaBtn && lightbox && lightboxImg) {
                 lightboxImg.src = mediaBtn.dataset.fullImg || "";
@@ -472,7 +433,6 @@ function bindArchiveEvents() {
         });
     }
 
-    // Cerrar Lightbox
     if (lightbox) {
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox || e.target.classList.contains("lightbox-close")) {

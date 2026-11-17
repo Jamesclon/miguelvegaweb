@@ -1,10 +1,4 @@
-/**
- * ============================================================================
- * Asociación Vecinal Pinar de Jalón (Valladolid)
- * Controlador de la Galería Multimedia (js/galeria-archivo.js)
- * Soporta fotografías y vídeos (MP4 / YouTube / Reels) con filtrado y Lightbox
- * ============================================================================
- */
+// Galería multimedia de fotos y vídeos (galeria.html)
 
 const FALLBACK_GALERIA = [
     {
@@ -120,15 +114,12 @@ const FALLBACK_GALERIA = [
 const state = {
     allItems: [],
     filteredItems: [],
-    activeFormat: "all",     // "all" | "imagen" | "video"
-    activeCategory: "all",   // "all" | "Fiestas" | "Deportes" | "Naturaleza" | "Comunidad"
-    currentIndex: -1,        // Índice activo en el Lightbox sobre state.filteredItems
-    likedIds: new Set()      // Registro de likes en la sesión actual
+    activeFormat: "all",
+    activeCategory: "all",
+    currentIndex: -1,
+    likedIds: new Set()
 };
 
-/**
- * Convierte fecha "dd/mm/yyyy" a timestamp numérico para ordenar de más reciente a más antigua
- */
 function parseDateDMY(dateStr) {
     if (!dateStr || typeof dateStr !== "string") return 0;
     const parts = dateStr.split("/");
@@ -137,9 +128,6 @@ function parseDateDMY(dateStr) {
     return new Date(year, month - 1, day).getTime() || 0;
 }
 
-/**
- * Carga los elementos multimedia desde data/galeria.json con respaldo automático
- */
 async function fetchGalleryData() {
     try {
         const response = await fetch("data/galeria.json");
@@ -152,9 +140,6 @@ async function fetchGalleryData() {
     }
 }
 
-/**
- * Filtra el listado según formato ("all", "imagen", "video") y categoría temática
- */
 function applyGalleryFilters() {
     state.filteredItems = state.allItems.filter((item) => {
         const matchesFormat =
@@ -172,9 +157,6 @@ function applyGalleryFilters() {
     updateGalleryStatusBar();
 }
 
-/**
- * Actualiza el contador de resultados y el botón de restablecer filtros
- */
 function updateGalleryStatusBar() {
     const countEl = document.getElementById("gallery-results-count");
     const resetBtn = document.getElementById("reset-gallery-filters-btn");
@@ -197,9 +179,6 @@ function updateGalleryStatusBar() {
     }
 }
 
-/**
- * Renderiza las tarjetas del muro multimedia en #archive-gallery-grid
- */
 function renderGalleryGrid() {
     const grid = document.getElementById("archive-gallery-grid");
     if (!grid) return;
@@ -264,9 +243,6 @@ function renderGalleryGrid() {
     }).join("");
 }
 
-/**
- * Determina si una URL de vídeo corresponde a YouTube / Vimeo / Instagram Embed
- */
 function getEmbedVideoUrl(url) {
     if (!url) return null;
     if (url.includes("youtube.com/embed/") || url.includes("player.vimeo.com/")) {
@@ -279,9 +255,7 @@ function getEmbedVideoUrl(url) {
     return null;
 }
 
-/**
- * Detiene cualquier reproducción de vídeo o iframe activa en el Lightbox
- */
+// Corta el audio/vídeo al cerrar o pasar de diapositiva
 function stopLightboxMedia() {
     const stage = document.getElementById("lightbox-media-stage");
     if (!stage) return;
@@ -293,16 +267,13 @@ function stopLightboxMedia() {
             videoEl.removeAttribute("src");
             videoEl.load();
         } catch (_) {
-            // Ignorar errores al limpiar elemento de vídeo
+            // noop
         }
     }
 
     stage.innerHTML = "";
 }
 
-/**
- * Abre el visor Lightbox en el índice indicado de state.filteredItems
- */
 function openLightboxAt(index) {
     if (index < 0 || index >= state.filteredItems.length) return;
     state.currentIndex = index;
@@ -317,9 +288,6 @@ function openLightboxAt(index) {
     document.body.style.overflow = "hidden";
 }
 
-/**
- * Cierra el visor Lightbox y detiene cualquier vídeo en curso
- */
 function closeLightbox() {
     const modal = document.getElementById("gallery-lightbox");
     if (!modal) return;
@@ -331,9 +299,6 @@ function closeLightbox() {
     state.currentIndex = -1;
 }
 
-/**
- * Navega al elemento anterior o siguiente dentro del Lightbox
- */
 function navigateLightbox(direction) {
     const total = state.filteredItems.length;
     if (total === 0) return;
@@ -343,9 +308,6 @@ function navigateLightbox(direction) {
     renderLightboxSlide();
 }
 
-/**
- * Renderiza el elemento multimedia actual (imagen o vídeo) dentro del Lightbox
- */
 function renderLightboxSlide() {
     const item = state.filteredItems[state.currentIndex];
     if (!item) return;
@@ -420,11 +382,7 @@ function renderLightboxSlide() {
     }
 }
 
-/**
- * Configura eventos de filtrado, clic en tarjetas, Lightbox y teclado
- */
 function setupGalleryInteractions() {
-    // 1. Pestañas de formato (Todo / Solo Fotos / Solo Vídeos)
     const formatBtns = document.querySelectorAll(".media-format-tabs .status-tab-btn");
     formatBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -440,7 +398,6 @@ function setupGalleryInteractions() {
         });
     });
 
-    // 2. Píldoras de categoría temática (#Todos, #Fiestas, #Deportes, #Naturaleza, #Comunidad)
     const catBtns = document.querySelectorAll(".archive-filter-tags .tag-filter");
     catBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -452,7 +409,6 @@ function setupGalleryInteractions() {
         });
     });
 
-    // 3. Botón de restablecer filtros
     const resetBtn = document.getElementById("reset-gallery-filters-btn");
     if (resetBtn) {
         resetBtn.addEventListener("click", () => {
@@ -473,7 +429,6 @@ function setupGalleryInteractions() {
         });
     }
 
-    // 4. Apertura del Lightbox al hacer clic o pulsar Enter en una tarjeta
     const grid = document.getElementById("archive-gallery-grid");
     if (grid) {
         grid.addEventListener("click", (e) => {
@@ -498,7 +453,6 @@ function setupGalleryInteractions() {
         });
     }
 
-    // 5. Controles del Lightbox (Cerrar, Anterior, Siguiente, Like, Clic fuera, Teclado)
     const modal = document.getElementById("gallery-lightbox");
     const closeBtn = document.getElementById("lightbox-close");
     const prevBtn = document.getElementById("lightbox-prev");
@@ -535,7 +489,6 @@ function setupGalleryInteractions() {
             const likeCountEl = document.getElementById("lightbox-like-count");
             if (likeCountEl) likeCountEl.textContent = updatedLikes;
 
-            // Actualizar contador también en la tarjeta del muro
             const cardLikeBadge = document.querySelector(`[data-card-like-id="${item.id}"]`);
             if (cardLikeBadge) {
                 cardLikeBadge.textContent = `♥ ${updatedLikes}`;
@@ -551,9 +504,7 @@ function setupGalleryInteractions() {
     });
 }
 
-/**
- * Comprueba si la URL trae un hash #media-X desde la portada para abrirlo automáticamente
- */
+// Permite abrir un elemento concreto desde la portada vía #media-X
 function checkDeepLinkHash() {
     const hash = window.location.hash;
     if (!hash || !hash.startsWith("#media-")) return;
@@ -567,9 +518,6 @@ function checkDeepLinkHash() {
     }
 }
 
-/**
- * Configura el menú hamburguesa en dispositivos móviles
- */
 function setupMobileMenu() {
     const menuBtn = document.querySelector(".mobile-menu-toggle");
     const mainNav = document.getElementById("main-nav");
@@ -581,9 +529,6 @@ function setupMobileMenu() {
     });
 }
 
-/**
- * Inicialización principal de galeria.html
- */
 document.addEventListener("DOMContentLoaded", async () => {
     setupMobileMenu();
     setupGalleryInteractions();
